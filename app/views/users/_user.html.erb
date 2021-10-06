@@ -1,0 +1,9 @@
+<tr>
+  <td><%= link_to user.email, user %></td>
+  <td>
+    <% if current_user.admin? %>
+    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, user, method: :delete,
+      data: { confirm: "bạn chắc chứ?" } %>
+    <% end %>
+  </td>
+</tr>
