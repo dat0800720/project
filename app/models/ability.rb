@@ -5,9 +5,10 @@ class Ability
 
   def initialize(user)
     if user.admin?
-      can :manage, :all
+      can [:read, :create], User
+      can [:update, :destroy], User, user_type: 'staff'
     else
-      can :read, :all
+      can [:read, :update], User, id: user.id
     end
   end
 end
