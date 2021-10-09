@@ -1,7 +1,7 @@
 class Constant < ApplicationRecord
 
   STATUS = {
-    0 => "Bị khóa"
-    1 => "Hoạt động"
+    0 => "Hoạt động",
+    1 => "Bị khóa"
   }
 end

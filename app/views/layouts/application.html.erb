@@ -34,9 +34,15 @@
             <%= render "layouts/header_admin" %>
           <% else %>
             <%= render "layouts/header_staff" %>
+            <div class="page-content--bgf7">
+              <p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p>
+              <%= yield %>
+            </div>
           <% end %>
         <% else %>
-        <div class="main-content">
+        <%= render "layouts/header" %>
+        <div class="layouts/header_staff">
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
           <%= yield %>
