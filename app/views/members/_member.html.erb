@@ -6,7 +6,7 @@
         </td>
         <td><%= link_to Constant::SEX[member.sex], member %></td>
         <td>
-          <%= link_to member.bithday, member %>
+          <%= link_to member.bithday.strftime("%d/%m/%Y"), member %>
         </td>
         <td>
           <%= link_to member.identity_card, member %>
@@ -19,9 +19,6 @@
         </td>
         <td>
           <%= link_to Constant::WORK_STATUS[member.work_status], member %>
-        </td>
-        <td>
-          <%= link_to member.seniority, member %>
         </td>
         <% if current_user&.admin? %>
           <td>

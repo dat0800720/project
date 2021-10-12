@@ -1,5 +1,5 @@
-<section class="p-t-20">
-  <div class="padding-left-right">
+<section class="p-t-20" style="display: flex ">
+  <div class="padding-left-right col-9">
     <div class="row">
       <div class="col-md-12">
         <div class="table-responsive table-responsive-data2">
@@ -21,5 +21,53 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="padding-left-right col-3">
+    <div class="form-titler-index">filter</div>
+    <%= search_form_for @search, class: "form-inline" do |f| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0"><%= f.label :name_cont, 'User Name:' %></h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :name_cont, class:"au-input au-input--full" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0"><%= f.label :email_cont, 'User Email:' %></h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :email_cont, class:"au-input au-input--full" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0"><label>User Type</label></h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.select :user_type_eq, options_for_select([["admin", "admin"], ["staff", "staff"]], f.object.user_type),{}%>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0"><%= f.label :status_eq, 'status:' %></h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.select :status_eq,  Constant::STATUS.invert%>
+            </div>
+          </div>
+          <hr>
+          <div class="col-sm-6", style="margin: auto;">
+            <%= f.submit "submit", class:"au-btn au-btn--block au-btn--green m-b-20" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </section>

@@ -1,34 +1,120 @@
 <section class="p-t-20">
-  <div class="padding-left-right">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="table-data__tool">
-          <div class="table-data__tool-right">
-            <button class="au-btn au-btn-icon au-btn--green au-btn--small"><%= link_to '<i class="zmdi zmdi-plus"></i>add item'.html_safe, new_member_path %></button>
+  <div class="table-data__tool col-md-12">
+    <div class="table-data__tool-right">
+      <button class="au-btn au-btn-icon au-btn--green au-btn--small"><%= link_to '<i class="zmdi zmdi-plus"></i>Thêm người dùng'.html_safe, new_member_path %></button>
+    </div>
+  </div>
+  <div style= "display: flex">
+    <div class="padding-left-right col-md-9">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive table-responsive-data2">
+            <table class="table table-data2">
+              <thead>
+                <tr>
+                  <th>Họ và tên</th>
+                  <th>Mã thành viên</th>
+                  <th>Giới tính</th>
+                  <th>Ngày sinh</th>
+                  <th>Số chứng minh nhân dân</th>
+                  <th>Quê quán</th>
+                  <th>Số điện thoại</th>
+                  <th>Trạng thái làm việc</th>
+                  <% if current_user&.admin? %>
+                    <th>thao tác</th>
+                  <%end%>
+                </tr>
+              </thead>
+              <%= render @members%>
+            </table>
           </div>
         </div>
-        <div class="table-responsive table-responsive-data2">
-          <table class="table table-data2">
-            <thead>
-              <tr>
-                <th>Họ và tên</th>
-                <th>Mã thành viên</th>
-                <th>Giới tính</th>
-                <th>Ngày sinh</th>
-                <th>Số chứng minh nhân dân</th>
-                <th>Quê quán</th>
-                <th>Số điện thoại</th>
-                <th>Trạng thái làm việc</th>
-                <th>Thâm niên làm việc</th>
-                <% if current_user&.admin? %>
-                  <th>thao tác</th>
-                <%end%>
-              </tr>
-            </thead>
-            <%= render @members%>
-          </table>
-        </div>
       </div>
+    </div>
+    <div class="padding-left-right col-md-3">
+      <div class="form-titler-index">filter</div>
+      <%= search_form_for @search, class: "form-inline" do |f| %>
+        <div class="col-md-12">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0"> Họ và tên</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <%= f.text_field :name_cont, class:"au-input au-input--full" %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Mã thành viên</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <%= f.text_field :employee_code_cont, class:"au-input au-input--full" %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Giới tính</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <%= f.select :sex_eq,  Constant::SEX.invert%>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Ngày sinh</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <%= f.date_field :bithday_cont, class:"au-input au-input--full" %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Số CMND</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <%= f.text_field :identity_card_cont, class:"au-input au-input--full" %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Quê quán</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <%= f.text_field :home_town_cont, class:"au-input au-input--full" %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Điện thoại</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <%= f.text_field :phone_number_cont, class:"au-input au-input--full" %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Trạng thái</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <%= f.select :work_status_eq,  Constant::WORK_STATUS.invert %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6", style="margin: auto;">
+          <%= f.submit "submit", class:"au-btn au-btn--block au-btn--green m-b-20" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>
