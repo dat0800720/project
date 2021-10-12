@@ -1,7 +1,8 @@
 class MembersController < ApplicationController
   before_action :find_member, only: [:show ,:edit, :update, :destroy]
   def index
-    @members = Member.all
+    @search = Member.ransack(params[:q])
+    @members = @search.result
   end
 
   def new
