@@ -1,0 +1,26 @@
+<section class="p-t-20">
+<div class="table-data__tool col-md-12">
+    <div class="table-data__tool-right">
+      <button class="au-btn au-btn-icon au-btn--green au-btn--small"><%= link_to '<i class="zmdi zmdi-plus"></i>Thêm loại ngày nghỉ'.html_safe, new_holiday_path %> </button>
+    </div>
+  </div>
+  <div class="padding-left-right col-12">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-responsive table-responsive-data2">
+          <table class="table table-data2">
+            <thead>
+              <tr>
+                <th>name</th>
+                <% if current_user&.admin? %>
+                  <th style="float: right; padding-right:50px" >thao tác</th>
+                <%end%>
+              </tr>
+            </thead>
+            <%= render @holidays%>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
