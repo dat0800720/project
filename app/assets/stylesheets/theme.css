@@ -226,6 +226,7 @@ a:active {
 
 a:hover,
 a {
+    text-decoration: none !important;
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -14654,4 +14655,30 @@ section {
 .padding-left-right{
   padding-left: 50px;
   padding-right: 50px;
+}
+/* show */
+.profile-header {
+  transform: translateY(5rem);
+}
+.width50{
+  width: 50%;
+}
+select{
+  line-height: 43px;
+  border: 1px solid #e5e5e5;
+  font-size: 14px;
+  color: #666;
+  padding: 0 17px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  width: 100%;
+  height: 45px;
+}
+.btn-dark{
+  color: #fff !important
 }

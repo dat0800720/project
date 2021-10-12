@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_09_154410) do
+ActiveRecord::Schema.define(version: 2021_10_11_083539) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,37 @@ ActiveRecord::Schema.define(version: 2021_10_09_154410) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "members", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "employee_code"
+    t.string "name"
+    t.integer "sex"
+    t.date "bithday"
+    t.string "nation"
+    t.string "marriage"
+    t.string "nationality"
+    t.string "religion"
+    t.string "identity_card"
+    t.date "date_issued"
+    t.string "issued_at"
+    t.string "home_town"
+    t.string "permanent_address"
+    t.string "presenter"
+    t.integer "license_plates"
+    t.string "vehicle_brand"
+    t.string "vehicle_color"
+    t.string "phone_number"
+    t.string "relatives_phone"
+    t.string "current_address"
+    t.integer "bank_account"
+    t.string "bank_name"
+    t.integer "work_status"
+    t.string "seniority"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_members_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
@@ -44,9 +75,11 @@ ActiveRecord::Schema.define(version: 2021_10_09_154410) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "notes"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "members", "users"
 end

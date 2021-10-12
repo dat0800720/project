@@ -1,0 +1,233 @@
+<%= form_for(@member) do |f| %>
+  <div style= "display:flex">
+    <div class="col-md-6">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0"> Họ và tên </h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :name, class:"au-input au-input--full", placeholder:"Họ và tên", autofocus: true, autocomplete: "name" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Mã thành viên</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :employee_code, class:"au-input au-input--full", placeholder:"Mã thành viên" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Ngày sinh</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.date_field :bithday, class:"au-input au-input--full", placeholder:"Ngày sinh" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Quốc tịch</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :nationality, class:"au-input au-input--full", placeholder:"Quốc tịch" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Dân tộc</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :nation, class:"au-input au-input--full", placeholder:"Dân tộc" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Tôn giáo</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :religion, class:"au-input au-input--full", placeholder:"Tôn giáo" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Giới tính</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.select :sex,  Constant::SEX.invert%>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Quê quán</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :home_town, class:"au-input au-input--full", placeholder:"Quê quán" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Địa chỉ thường trú</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :permanent_address, class:"au-input au-input--full", placeholder:"Địa chỉ thường trú" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Nơi ở hiện nay</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :current_address, class:"au-input au-input--full", placeholder:"Nơi ở hiện nay" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Tình trạng hôn nhân</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :marriage, class:"au-input au-input--full", placeholder:"Tình trạng hôn nhân" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Trạng thái làm việc</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.select :work_status,  Constant::WORK_STATUS.invert %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0"> Số chứng minh nhân dân</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :identity_card, class:"au-input au-input--full", placeholder:"Số chứng minh nhân dân" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Ngày cấp</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.date_field :date_issued, class:"au-input au-input--full", placeholder:"Ngày cấp" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Nơi cấp</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :issued_at, class:"au-input au-input--full", placeholder:"Nơi cấp" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Thâm niên làm việc</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :seniority, class:"au-input au-input--full", placeholder:"Thâm niên làm việc" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Người giới thiệu</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :presenter, class:"au-input au-input--full", placeholder:"Người giới thiệu" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Số tài khoản ngân hàng</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :bank_account, class:"au-input au-input--full", placeholder:"Số tài khoản ngân hàng" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Tên tài khoản ngân hàng</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :bank_name, class:"au-input au-input--full", placeholder:"Tên tài khoản ngân hàng" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Biển số xe</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :license_plates, class:"au-input au-input--full", placeholder:"Biển số xe" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Hãng xe</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :vehicle_brand, class:"au-input au-input--full", placeholder:"Hãng xe" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Màu xe</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :vehicle_color, class:"au-input au-input--full", placeholder:"Màu xe" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Số điện thoại</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :phone_number, class:"au-input au-input--full", placeholder:"Số điện thoại" %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Số điện thoại người thân</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              <%= f.text_field :relatives_phone, class:"au-input au-input--full", placeholder:"Số điện thoại người thân" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6", style="margin: auto;">
+  <%= f.submit "submit", class:"au-btn au-btn--block au-btn--green m-b-20" %>
+  </div>
+<% end %>

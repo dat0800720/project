@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   enum user_type: {staff: 0, admin: 1}
   has_one_attached :image
+
+  def active_for_authentication?
+    self.status == 0
+  end
 end

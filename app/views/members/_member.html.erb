@@ -1,0 +1,43 @@
+<tbody>
+    <tr class="tr-shadow">
+        <td><%= link_to member.name, member %></td>
+        <td>
+            <%= link_to member.employee_code, member %>
+        </td>
+        <td><%= link_to Constant::SEX[member.sex], member %></td>
+        <td>
+          <%= link_to member.bithday, member %>
+        </td>
+        <td>
+          <%= link_to member.identity_card, member %>
+        </td>
+        <td>
+          <%= link_to member.home_town, member %>
+        </td>
+        <td>
+          <%= link_to member.phone_number, member %>
+        </td>
+        <td>
+          <%= link_to Constant::WORK_STATUS[member.work_status], member %>
+        </td>
+        <td>
+          <%= link_to member.seniority, member %>
+        </td>
+        <% if current_user&.admin? %>
+          <td>
+              <div class="table-data-feature">
+                  <button class="item" data-toggle="tooltip" data-placement="top" title="show">
+                      <%= link_to '<i class="fa fa-eye"></i>'.html_safe, member %>
+                  </button>
+                  <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                      <%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, edit_member_path(member) %>
+                  </button>
+                  <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                      <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, member, method: :delete, data: { confirm: "bạn chắc chứ?" } %>
+                  </button>
+              </div>
+          </td>
+        <% end %>
+    </tr>
+    <tr class="spacer"></tr>
+</tbody>

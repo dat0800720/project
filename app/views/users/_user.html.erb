@@ -9,7 +9,7 @@
         </td>
         <td class="desc"><%= link_to user.user_type, user %></td>
         <td>
-            <span class="status--process"><%= link_to user.status, user %></span>
+            <span class="status--process"><%= link_to Constant::STATUS[user.status], user %></span>
         </td>
         <% if current_user&.admin? %>
           <td>
