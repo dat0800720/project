@@ -1,0 +1,34 @@
+<section class="p-t-20">
+  <div class="padding-left-right">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-data__tool">
+          <div class="table-data__tool-right">
+            <button class="au-btn au-btn-icon au-btn--green au-btn--small"><%= link_to '<i class="zmdi zmdi-plus"></i>add item'.html_safe, new_member_path %></button>
+          </div>
+        </div>
+        <div class="table-responsive table-responsive-data2">
+          <table class="table table-data2">
+            <thead>
+              <tr>
+                <th>Họ và tên</th>
+                <th>Mã thành viên</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+                <th>Số chứng minh nhân dân</th>
+                <th>Quê quán</th>
+                <th>Số điện thoại</th>
+                <th>Trạng thái làm việc</th>
+                <th>Thâm niên làm việc</th>
+                <% if current_user&.admin? %>
+                  <th>thao tác</th>
+                <%end%>
+              </tr>
+            </thead>
+            <%= render @members%>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

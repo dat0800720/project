@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show ,:edit, :update, :destroy]
+  before_action :find_user, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   def show
-    @user = User.find_by(id: params[:id])
   end
 
   def index
@@ -43,13 +42,13 @@ class UsersController < ApplicationController
 
   private
   def find_user
-    @user=User.find_by(id:params[:id])
+    @user= User.find_by(id:params[:id])
     unless @user
       redirect_to root_path
     end
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :user_type, :status, :image)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :user_type, :status, :image, :notes)
   end
 end

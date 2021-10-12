@@ -15,7 +15,6 @@ if User.none?
     status: 0
   )
 
-
   20.times do |n|
     name = "staff-#{n+1}"
     email = "staff-#{n+1}@railstutorial.org"
