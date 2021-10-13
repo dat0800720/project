@@ -23,13 +23,10 @@ class HolidaysController < ApplicationController
 
   def update
     if @holiday.update(holiday_params)
-      redirect_to holiday_path(@holiday)
+      redirect_to holidays_path(@holiday)
     else
       render "edit"
     end
-  end
-
-  def show
   end
 
   def destroy
