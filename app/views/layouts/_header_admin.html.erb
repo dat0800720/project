@@ -151,6 +151,9 @@
                     <%= link_to '<i class="fa fa-users"></i>Members'.html_safe, members_path %>
                 </li>
                 <li>
+                    <%= link_to '<i class="zmdi zmdi-assignment zmd-fw"></i>Holiday'.html_safe, holidays_path %>
+                </li>
+                <li>
                     <a href="calendar.html">
                         <i class="fas fa-calendar-alt"></i>Calendar</a>
                 </li>
@@ -225,8 +228,8 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="header-wrap">
-                  <button type="button" id="sidebarCollapse1" class="btn btn-info navbar-btn" onclick="closeNav()" style="background: #fed136;">close</i></button>
-                  <button type="button" id="sidebarCollapse2" class="btn btn-info navbar-btn" onclick="openNav()" style="background: #fed136; display:none;">open</i></button>
+                  <button type="button" id="sidebarCollapse1" class="btn btn-info navbar-btn" onclick="closeNav()" style="background: #fed136;"><i class="fas fa-align-justify"></i></button>
+                  <button type="button" id="sidebarCollapse2" class="btn btn-info navbar-btn" onclick="openNav()" style="background: #fed136; display:none;"><i class="fas fa-align-justify"></i></button>
                     <form class="form-header" action="" method="POST">
                         <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                         <button class="au-btn--submit" type="submit">

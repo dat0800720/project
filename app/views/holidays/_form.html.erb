@@ -1,0 +1,19 @@
+<%= form_for(@holiday) do |f| %>
+  <div class="col-md-12" style="margin: auto;">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0"> Loại ngày nghỉ </h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            <%= f.text_field :name, class:"au-input au-input--full", placeholder:"Loại ngày nghỉ", autofocus: true, autocomplete: "name" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4", style="margin: auto;">
+    <%= f.submit "submit", class:"au-btn au-btn--block au-btn--green m-b-20" %>
+  </div>
+<% end %>
