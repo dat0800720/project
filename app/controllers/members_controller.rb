@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   before_action :find_member, only: [:show ,:edit, :update, :destroy]
   def index
     @search = Member.ransack(params[:q])
-    @members = @search.result
+    @pagy, @members = pagy(@search.result, items: 10)
   end
 
   def new
@@ -18,11 +18,9 @@ class MembersController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @member.update(member_params)

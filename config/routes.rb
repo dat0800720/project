@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "static_pages#home"
-  resources :users
-  resources :members
-  resources :holidays
+  scope "(:locale)", locale: /en|vi/ do
+    resources :users
+    resources :members
+    resources :holidays
+    resources :requests
+  end
 end

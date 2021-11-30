@@ -4064,14 +4064,14 @@ section {
     -ms-flex-align: baseline;
     align-items: baseline;
     margin-bottom: 30px;
-    font-size: 14px;
+    font-size: 17px;
 }
 
 .chart-note {
     text-transform: capitalize;
     display: inline-block;
     margin-right: 12px;
-    font-size: 14px;
+    font-size: 17px;
 }
 
 .chart-note .dot {
@@ -4081,6 +4081,7 @@ section {
 .chart-statis {
     display: inline-block;
     margin-right: 35px;
+    font-size: 17px;
 }
 
 .chart-statis i {
@@ -4089,6 +4090,7 @@ section {
 }
 
 .chart-statis .label {
+    font-size: 17px;
     display: block;
     text-transform: capitalize;
     line-height: 1.2;
@@ -4495,8 +4497,7 @@ section {
     border: none;
     font-weight: 600;
     vertical-align: top;
-    padding: 15px 40px;
-    padding-right: 10px;
+    text-align: center;
 }
 
 .table-data2.table thead th:first-child {
@@ -4545,9 +4546,9 @@ section {
     font-size: 14px;
     color: #808080;
     vertical-align: middle;
-    padding: 25px 40px;
     padding-right: 10px;
     border: none;
+    text-align: center;
 }
 
 .table-data2.table tbody td.desc {
@@ -14691,4 +14692,11 @@ select{
   vertical-align: top;
   padding: 15px 40px;
   padding-right: 10px;
+}
+.form-control.is-valid{
+  background-image: none
+}
+
+.form-control {
+  width: 100% !important;
 }

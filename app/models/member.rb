@@ -14,7 +14,10 @@ class Member < ApplicationRecord
   private
   def create_user
     user = User.find_or_initialize_by(email: "#{self.employee_code}@rubyonring.com")
-    user.update(password: 123456, name: self.name) if user.new_record?
+    if user.new_record?
+      user.update(password: 123456, name: self.name)
+      user.image.attach(io: File.open("/home/dat/project/app/assets/images/user.png"), filename: "user.png")
+    end
     self.user_id = user.id
   end
 

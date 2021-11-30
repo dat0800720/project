@@ -1,73 +1,56 @@
-<section class="p-t-20" style="display: flex ">
-  <div class="padding-left-right col-9">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="table-responsive table-responsive-data2">
-          <table class="table table-data2">
-            <thead>
-              <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>email</th>
-                <th>user type</th>
-                <th>status</th>
-                <% if current_user&.admin? %>
-                  <th>thao tác</th>
-                <%end%>
-              </tr>
-            </thead>
-            <%= render @users%>
-          </table>
-        </div>
-      </div>
+<div class="row m-t-30">
+  <div class="col-md-9">
+    <!-- DATA TABLE-->
+    <div class="table-responsive m-b-40">
+      <table class="table table-borderless table-data3">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>user type</th>
+            <th>status</th>
+            <% if current_user&.admin? %>
+              <th>thao tác</th>
+            <%end%>
+          </tr>
+        </thead>
+        <%= render @users%>
+      </table>
     </div>
+      <!-- END DATA TABLE-->
   </div>
-  <div class="padding-left-right col-3">
-    <div class="form-titler-index">filter</div>
-    <%= search_form_for @search, class: "form-inline" do |f| %>
-      <div class="card mb-3">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-sm-3">
-              <h6 class="mb-0"><%= f.label :name_cont, 'User Name:' %></h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              <%= f.text_field :name_cont, class:"au-input au-input--full" %>
-            </div>
+  <div class="col-lg-3" style= "padding-right: 30px;">
+    <div class="card">
+      <div class="card-header">
+        <strong>Filter</strong> Form
+      </div>
+      <%= search_form_for @search, class: "form-inline" do |f| %>
+        <div class="card-body card-block">
+          <div class="has-success form-group">
+            <%= f.label :name_cont, 'User Name:', class: " form-control-label" %>
+            <%= f.text_field :name_cont, class:"is-valid form-control-success form-control" %>
           </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <h6 class="mb-0"><%= f.label :email_cont, 'User Email:' %></h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              <%= f.text_field :email_cont, class:"au-input au-input--full" %>
-            </div>
+          <div class="has-warning form-group">
+            <%= f.label :email_cont, 'User Email:', class: " form-control-label" %>
+            <%= f.text_field :email_cont, class:"is-valid form-control-success form-control" %>
           </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <h6 class="mb-0"><label>User Type</label></h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              <%= f.select :user_type_eq, options_for_select([["admin", "admin"], ["staff", "staff"]], f.object.user_type),{}%>
-            </div>
+          <div class="has-warning form-group">
+            <%= f.label :user_type_eq, 'User Type:', class: " form-control-label" %>
+            <%= f.select :user_type_eq, options_for_select([["------"],["admin", "1"], ["staff", "0"]], f.object.user_type),{}, class:"is-valid form-control-success form-control" %>
           </div>
-          <hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <h6 class="mb-0"><%= f.label :status_eq, 'status:' %></h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-              <%= f.select :status_eq,  Constant::STATUS.invert%>
-            </div>
+          <div class="has-warning form-group">
+            <%= f.label :status_eq, 'Status:', class: " form-control-label" %>
+            <%= f.select :status_eq, Constant::STATUS.invert, class:"is-valid form-control-success form-control" %>
           </div>
-          <hr>
-          <div class="col-sm-6", style="margin: auto;">
+          <div class="col-sm-6", style="margin: auto; padding-top: 30px">
             <%= f.submit "submit", class:"au-btn au-btn--block au-btn--green m-b-20" %>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</section>
+</div>
+<div style="width: 30%; margin: auto !important;">
+  <%== pagy_bootstrap_nav(@pagy) %>  
+</div>
