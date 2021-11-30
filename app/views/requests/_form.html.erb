@@ -1,0 +1,24 @@
+<%= form_for @request do |f| %>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-secondary">
+          <div class="card-body">
+            <div class="form-group">
+              <label>holiday</label>
+              <%= f.select(:holiday_id, Holiday.all.collect {|u| [ u.name, u.id ] }, {include_blank: " Chọn đơn vị"}) %>
+            </div>
+            <div class="form-group">
+              <label>content</label>
+              <%= f.text_field :content, class: "form-control" %>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <%= f.submit "submit", class: "btn btn-success float-right" %>
+      </div>
+    </div>
+  </section>
+<% end %>

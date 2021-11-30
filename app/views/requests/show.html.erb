@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-lg-8" style="margin: auto">
+    <div class="au-card recent-report">
+      <div class="au-card-inner">
+        <h3 class="title-2" style="text-align: center; margin-bottom: 30px;"><%= @request.holiday.name %></h3>
+        <div class="chart-info">
+          <div class="chart-info__left">
+            <div class="chart-note">
+              Người gửi: <span><%= @request.member.name %></span>
+            </div>
+          </div>
+          <div class="chart-info__right">
+            <div class="chart-statis">
+              Ngày gửi: <span><%= @request.created_at&.strftime("%H : %M -- %d/%m/%Y ") %></span>
+            </div>
+          </div>
+        </div>
+        <div class="chart-statis">
+          Nội dung: <span class="label" style="padding-left: 20px"><%= @request.content %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

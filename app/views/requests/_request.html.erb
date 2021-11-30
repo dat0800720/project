@@ -1,0 +1,22 @@
+<tbody>
+  <tr class="tr-shadow">
+    <td><%= link_to request.holiday.name, request %></td>
+    <td><%= link_to request.member.name, request %></td>
+    <% if current_user&.admin? %>
+      <td>
+        <div class="table-data-feature">
+          <button class="item" data-toggle="tooltip" data-placement="top" title="show">
+            <%= link_to '<i class="fa fa-eye"></i>'.html_safe, request %>
+          </button>
+          <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+            <%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, edit_request_path(request) %>
+          </button>
+          <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+            <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, request, method: :delete, data: { confirm: "bạn chắc chứ?" } %>
+          </button>
+        </div>
+      </td>
+    <% end %>
+  </tr>
+  <tr class="spacer"></tr>
+</tbody>

@@ -2,20 +2,18 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
-  def show
-  end
+  def show; end
 
   def index
     @search = User.ransack(params[:q])
-    @users = @search.result
+    @pagy, @users = pagy(@search.result, items: 10)
   end
 
   def new
     @user = User.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @user = User.new(user_params)
