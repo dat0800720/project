@@ -1,5 +1,6 @@
 <%= form_for @request do |f| %>
   <section class="content">
+    <%= render "devise/shared/error_messages", resource: @request %>
     <div class="row">
       <div class="col-md-12">
         <div class="card card-secondary">
@@ -9,9 +10,29 @@
               <%= f.select(:holiday_id, Holiday.all.collect {|u| [ u.name, u.id ] }, {include_blank: " Chọn đơn vị"}) %>
             </div>
             <div class="form-group">
+              <label>theo dõi</label>
+              <%= f.select(:follower_ids, Member.all.collect {|m| [m.name, m.id]}, {}, id: "follower_ids", :multiple => true ) %>
+            </div>
+            <div class="form-group">
+              <label>chấp nhận</label>
+              <%= f.select(:approver_ids, Member.all.collect {|m| [m.name, m.id]}, {}, id: "event_user_ids", :multiple => true ) %>
+            </div>
+            <div class="form-group">
               <label>content</label>
               <%= f.text_field :content, class: "form-control" %>
             </div>
+            <div class="form-nested">
+              <h2 style="text-align: center; padding:50px"> break time </h2>
+              <div class="row" id="add_course_benefit">
+                <%= f.fields_for :break_times do |break_time| %>
+                  <%= render "break_time_fields", f: break_time %>
+                <% end %>
+                <div class="links add_course_benefit">
+                  <%= link_to_add_association "add", f, :break_times %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -22,3 +43,7 @@
     </div>
   </section>
 <% end %>
+<script>
+  $( "#event_user_ids" ).select2();
+  $( "#follower_ids" ).select2();
+</script>

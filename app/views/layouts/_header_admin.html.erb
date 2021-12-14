@@ -210,6 +210,16 @@
   </header>
   <!-- HEADER DESKTOP-->
   <div class="main-content">
+    <% flash.each do |key, msg| %>
+      <% if key == "success" %>
+        <div class="alert alert-success">
+          <%= msg %>
+        </div> 
+      <% end %>
+      <% if key == "danger" %>
+        <%= content_tag :div, msg %>  
+      <% end %>
+    <% end %>
     <%= yield %>
   </div>
 </div>

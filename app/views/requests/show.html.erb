@@ -15,6 +15,36 @@
             </div>
           </div>
         </div>
+        <% @request.break_times.each do |break_time| %>
+          <div class="chart-info">
+            <div class="chart-info__left">
+              <div class="chart-note">
+                xin nghỉ ngày:
+                <span>
+                  <%= break_time.day&.strftime("%d/%m/%Y ") %> 
+                  <% if break_time.start_time.present? && break_time.end_time.present? %>
+                    Từ: <%= break_time.start_time&.strftime("%H : %M") %> đến <%= break_time.end_time&.strftime("%H : %M") %>
+                  <% end %>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% @request.member_requests.approver.each do |a| %>
+          <div class="chart-info">
+            <div class="chart-note">
+              Người theo dõi: <%= a.member.name %>
+            </div>
+          </div>
+        <% end %>
+          <div class="chart-info">
+            <div class="chart-note">
+            Người chấp nhận: 
+            <% @request.member_requests.follower.each do |a| %>
+              <%= a.member.name %>.
+            <% end %>
+            </div>
+          </div>
         <div class="chart-statis">
           Nội dung: <span class="label" style="padding-left: 20px"><%= @request.content %></span>
         </div>

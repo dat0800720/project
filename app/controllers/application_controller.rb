@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_locale
+  before_action :set_current_user
   include Pagy::Backend
 
   def set_locale
@@ -10,5 +11,8 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     { locale: I18n.locale }
+  end
+  def set_current_user
+    User.current = current_user
   end
 end
