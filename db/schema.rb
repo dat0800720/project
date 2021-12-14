@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_064451) do
+ActiveRecord::Schema.define(version: 2021_11_30_074151) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,10 +33,30 @@ ActiveRecord::Schema.define(version: 2021_10_13_064451) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "break_times", force: :cascade do |t|
+    t.integer "request_id", null: false
+    t.time "start_time"
+    t.time "end_time"
+    t.date "day"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["request_id"], name: "index_break_times_on_request_id"
+  end
+
   create_table "holidays", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "member_requests", force: :cascade do |t|
+    t.integer "request_id"
+    t.integer "member_id"
+    t.integer "type_recipient"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_member_requests_on_member_id"
+    t.index ["request_id"], name: "index_member_requests_on_request_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -75,6 +95,7 @@ ActiveRecord::Schema.define(version: 2021_10_13_064451) do
     t.integer "holiday_id", null: false
     t.string "content"
     t.integer "request_status"
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["holiday_id"], name: "index_requests_on_holiday_id"
@@ -98,6 +119,9 @@ ActiveRecord::Schema.define(version: 2021_10_13_064451) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "break_times", "requests"
+  add_foreign_key "member_requests", "members"
+  add_foreign_key "member_requests", "requests"
   add_foreign_key "members", "users"
   add_foreign_key "requests", "holidays"
   add_foreign_key "requests", "members"

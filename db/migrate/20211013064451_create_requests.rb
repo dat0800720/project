@@ -5,6 +5,7 @@ class CreateRequests < ActiveRecord::Migration[6.0]
       t.references :holiday, null: false, foreign_key: true
       t.string :content
       t.integer :request_status
+      t.text :comment
 
       t.timestamps
     end

@@ -1,4 +1,5 @@
 <%= form_for(@member) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @member %>
   <div style= "display:flex">
     <div class="col-md-6">
       <div class="card mb-3">

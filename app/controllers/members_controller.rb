@@ -12,8 +12,10 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params)
     if @member.save
+      flash[:success] = t("body.successfully")
       redirect_to @member
     else
+      flash[:danger] = t("body.unsuccessfully")
       render "new"
     end
   end
@@ -24,14 +26,17 @@ class MembersController < ApplicationController
 
   def update
     if @member.update(member_params)
+      flash[:success] = t("body.successfully")
       redirect_to @member
     else
+      flash[:danger] = t("body.unsuccessfully")
       render "edit"
     end
   end
 
   def destroy
     @user.destroy
+    flash[:success] = t("body.successfully")
     redirect_to member_url
   end
 

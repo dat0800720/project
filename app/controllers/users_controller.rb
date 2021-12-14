@@ -21,14 +21,17 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome!"
       redirect_to @user
     else
+      flash[:danger] = t("body.unsuccessfully")
       render 'new'
     end
   end
 
   def update
     if @user.update(user_params)
+      flash[:danger] = t("body.successfully")
       redirect_to @user
     else
+      flash[:danger] = t("body.unsuccessfully")
       render 'edit'
     end
   end
