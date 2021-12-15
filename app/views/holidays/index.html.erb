@@ -1,25 +1,27 @@
-<div class="row m-t-30">
-  <div class="table-data__tool-right" style= "padding-left: 40px; margin-bottom: 50px">
-    <button class="au-btn au-btn-icon au-btn--green au-btn--small"><%= link_to '<i class="zmdi zmdi-plus"></i>Loại ngày nghỉ'.html_safe, new_holiday_path %></button>
-  </div>
-  <div class="col-md-12">
-    <!-- DATA TABLE-->
-    <div class="table-responsive m-b-40">
-      <table class="table table-borderless table-data3">
-        <thead>
-          <tr>
-            <th>Tên</th>
-            <% if current_user&.admin? %>
-              <th>thao tác</th>
-            <%end%>
-          </tr>
-        </thead>
-        <%= render @holidays%>
-      </table>
+<div class="container">
+  <div class="row m-t-30">
+    <div class="table-data__tool-right" style= "padding-left: 40px; margin-bottom: 50px">
+      <button class="au-btn au-btn-icon au-btn--green au-btn--small"><%= link_to '<i class="zmdi zmdi-plus"></i>Loại ngày nghỉ'.html_safe, new_holiday_path %></button>
     </div>
-      <!-- END DATA TABLE-->
+    <div class="col-md-12">
+      <!-- DATA TABLE-->
+      <div class="table-responsive m-b-40">
+        <table class="table table-borderless table-data3">
+          <thead>
+            <tr>
+              <th style="float: left ">Tên</th>
+              <% if current_user&.admin? %>
+                <th>thao tác</th>
+              <%end%>
+            </tr>
+          </thead>
+          <%= render @holidays%>
+        </table>
+      </div>
+        <!-- END DATA TABLE-->
+    </div>
   </div>
-</div>
-<div style="width: 30%; margin: auto !important;">
-  <%== pagy_bootstrap_nav(@pagy) %>  
+  <div style="width: 30%; margin: auto !important;">
+    <%== pagy_bootstrap_nav(@pagy) %>  
+  </div>
 </div>

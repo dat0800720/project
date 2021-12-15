@@ -22,7 +22,6 @@
   </head>
 
   <body class="animsition">
-    <div class="page-wrapper">
         <% if user_signed_in? %>
           <% if current_user.admin? %>
             <%= render "layouts/header_admin" %>
@@ -37,7 +36,6 @@
           <%= yield %>
         </div>
         <% end %>
-    </div>
     <script src="https://colorlib.com/polygon/cooladmin/vendor/animsition/animsition.min.js"></script>
     <!-- Main JS-->
     <script src="https://colorlib.com/polygon/cooladmin/js/main.js"></script>

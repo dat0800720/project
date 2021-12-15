@@ -1,6 +1,6 @@
 <tbody>
   <tr class="tr-shadow">
-    <td><%= link_to holiday.name, edit_holiday_path(holiday)  %></td>
+    <td style="float: left "><%= link_to holiday.name, edit_holiday_path(holiday)  %></td>
     <% if current_user&.admin? %>
       <td>
         <div class="table-data-feature">
