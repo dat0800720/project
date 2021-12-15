@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   enum user_type: {staff: 0, admin: 1}
+  has_one :member, dependent: :destroy
   has_one_attached :image
 
   def active_for_authentication?

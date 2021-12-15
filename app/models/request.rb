@@ -7,12 +7,12 @@ class Request < ApplicationRecord
   has_many :break_times, dependent: :destroy
   accepts_nested_attributes_for :break_times, allow_destroy: true
   before_update :not_reject
+  before_create :create_request
   after_save :sent_to_members
 
   private
+
   def create_request
-    user = User.current
-    self.member_id = user.member.id
     self.request_status = 0 if self.request_status.blank?
   end
 
