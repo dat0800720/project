@@ -1,18 +1,15 @@
 <tbody>
-  <tr class="tr-shadow">
-    <td style="float: left "><%= link_to holiday.name, edit_holiday_path(holiday)  %></td>
+  <tr>
+    <td><%= holiday.name %></td>
     <% if current_user&.admin? %>
-      <td>
-        <div class="table-data-feature">
-          <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-            <%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, edit_holiday_path(holiday) %>
-          </button>
-          <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-            <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, holiday, method: :delete, data: { confirm: "bạn chắc chứ?" } %>
-          </button>
-        </div>
+      <td class="project-actions text-right">
+        <%= link_to edit_holiday_path(holiday), class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= link_to holiday, class: "btn btn-primary btn-sm", method: :delete, data: { confirm: t("health_festival.are_you_sure") } do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
       </td>
     <% end %>
   </tr>
-  <tr class="spacer"></tr>
 </tbody>

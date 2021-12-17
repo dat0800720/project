@@ -1,8 +1,46 @@
-<div class="row m-t-30">
-  <div class="col-md-9">
-    <!-- DATA TABLE-->
-    <div class="table-responsive m-b-40">
-      <table class="table table-borderless table-data3">
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-12">
+        <h1><%= t("training.training") %></h1>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <!-- Default box -->
+  <div class="card">
+    <div class="card-header">
+      <%= search_form_for @search, class: "form-inline" do |f| %>
+        <div class="input-group rounded col-md-12 center">
+          <div class="col-md-3">
+            <label>name</label>
+            <%= f.text_field :name_cont, class: "form-control width_full" %>
+          </div>
+          <div class="col-md-3">
+            <label>email</label>
+            <%= f.text_field :email_cont, class: "form-control width_full" %>
+          </div>
+          <div class="col-md-3">
+            <label>user type</label>
+            <%= f.select :user_type_eq, select_type("user.search_user_type") %> 
+          </div>
+          <div class="col-md-2">
+            <label>status</label>
+            <%= f.select :status_eq, Constant::STATUS.invert %>
+          </div>
+          <div class="col-md-1">
+            <h3 style="height:25%"></h3>
+            <%= f.submit "search", class: "btn btn-success" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="card-body p-0">
+      <table class="table table-striped projects">
         <thead>
           <tr>
             <th>id</th>
@@ -10,47 +48,19 @@
             <th>email</th>
             <th>user type</th>
             <th>status</th>
-            <% if current_user&.admin? %>
-              <th>thao tác</th>
-            <%end%>
+            <th class="text-right">thao tác</th>
           </tr>
         </thead>
         <%= render @users%>
       </table>
     </div>
-      <!-- END DATA TABLE-->
+    <!-- /.card-body -->
   </div>
-  <div class="col-lg-3" style= "padding-right: 30px;">
-    <div class="card">
-      <div class="card-header">
-        <strong>Filter</strong> Form
-      </div>
-      <%= search_form_for @search, class: "form-inline" do |f| %>
-        <div class="card-body card-block">
-          <div class="has-success form-group">
-            <%= f.label :name_cont, 'User Name:', class: " form-control-label" %>
-            <%= f.text_field :name_cont, class:"is-valid form-control-success form-control" %>
-          </div>
-          <div class="has-warning form-group">
-            <%= f.label :email_cont, 'User Email:', class: " form-control-label" %>
-            <%= f.text_field :email_cont, class:"is-valid form-control-success form-control" %>
-          </div>
-          <div class="has-warning form-group">
-            <%= f.label :user_type_eq, 'User Type:', class: " form-control-label" %>
-            <%= f.select :user_type_eq, options_for_select([["------"],["admin", "1"], ["staff", "0"]], f.object.user_type),{}, class:"is-valid form-control-success form-control" %>
-          </div>
-          <div class="has-warning form-group">
-            <%= f.label :status_eq, 'Status:', class: " form-control-label" %>
-            <%= f.select :status_eq, Constant::STATUS.invert, class:"is-valid form-control-success form-control" %>
-          </div>
-          <div class="col-sm-6", style="margin: auto; padding-top: 30px">
-            <%= f.submit "submit", class:"au-btn au-btn--block au-btn--green m-b-20" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+  <!-- /.card -->
+</section>
+<!-- /.content -->
+<% if User.count > 10 %>
+  <div style="width: 30%; margin: auto !important;">
+    <%== pagy_bootstrap_nav(@pagy) %> 
   </div>
-</div>
-<div style="width: 30%; margin: auto !important;">
-  <%== pagy_bootstrap_nav(@pagy) %>  
-</div>
+<% end %>

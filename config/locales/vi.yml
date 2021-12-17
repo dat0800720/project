@@ -1,0 +1,34 @@
+vi:
+  header:
+    logout: Đăng xuất
+  log_in:
+    sign_in: Đăng nhập
+    forgot_your_password: Quên mật khẩu?
+    password: mật khẩu
+    new_password: Mật khẩu mới
+    change_your_password: Thay đổi mật khẩu
+    change_password: Đổi mật khẩu
+    content_change_password: Bạn chỉ còn một bước nữa để có được mật khẩu mới, hãy khôi phục mật khẩu của bạn ngay bây giờ.
+    confirm_password: Xác nhận mật khẩu
+    content_forgot_your_password: Bạn quên mật khẩu của mình? Tại đây bạn có thể dễ dàng lấy lại mật khẩu mới.
+    request_new_password: yêu cầu mật khẩu mới
+  boby:
+    create: Tạo mới
+    content: Nội dung
+    title: Tiêu đề
+    image: Thêm ảnh
+    phone: Số điện thoại
+    submit: Gửi đi
+    email: Email
+    back: Hủy bỏ
+    successfully: Thành công
+    unsuccessfully: Không thành công
+    search: Tìm kiếm
+    quit: Quay lại
+    language: Ngôn ngữ
+    slug_auto: Slug tự động
+    edit: Chỉnh sửa
+  user:
+    search_user_type:
+      0: Nhân viên
+      1: Admin

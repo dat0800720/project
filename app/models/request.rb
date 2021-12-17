@@ -1,5 +1,5 @@
 class Request < ApplicationRecord
-  attr_accessor :approver_ids, :follower_ids, :button_draff
+  attr_accessor :approver_ids, :follower_ids, :button_draft
   belongs_to :member
   belongs_to :holiday
   has_many :member_requests, dependent: :destroy
@@ -9,6 +9,7 @@ class Request < ApplicationRecord
   before_update :not_reject
   before_create :create_request
   after_save :sent_to_members
+  before_save :check_button
 
   private
 
@@ -35,5 +36,11 @@ class Request < ApplicationRecord
         end
       end
     end
+  end
+
+  def check_button
+    self.request_status = 0 if self.button_draft.present? && self.button_draft.to_s == "submit"
+    self.request_status = 1 if self.button_draft.present? && self.button_draft.to_s == "draft"
+    self.request_status = 3 if self.button_draft.present? && self.button_draft.to_s == "update_reject"
   end
 end

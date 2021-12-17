@@ -1,25 +1,33 @@
 <tbody>
   <tr>
-    <td><%= link_to user.id, user %></td>
-    <td><%= link_to user.name, user %></td>
-    <td><%= link_to user.email, user %></td>
-    <td class="desc"><%= link_to user.user_type, user %></td>
-    <td><span class="status--process"><%= link_to Constant::STATUS[user.status], user %></span></td>
-    <% if current_user&.admin? %>
-      <td>
-        <div class="table-data-feature">
-          <button class="item" data-toggle="tooltip" data-placement="top" title="show">
-            <%= link_to '<i class="fa fa-eye"></i>'.html_safe, user %>
-          </button>
-          <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-            <%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, edit_user_path(user) %>
-          </button>
-          <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-            <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, user, method: :delete, data: { confirm: "bạn chắc chứ?" } %>
-          </button>
-        </div>
-      </td>
-    <% end %>
+    <td><%= user.id %></td>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.user_type %></td>
+    <td><%= Constant::STATUS[user.status] %></td>
+    <td class="project-actions text-right">
+      <% if current_user&.admin? %>
+        <%= link_to user, class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+        <%= link_to edit_user_path(user), class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= link_to user, class: "btn btn-primary btn-sm", method: :delete, data: { confirm: t("health_festival.are_you_sure") } do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      <% elsif current_user.id == user.id %>
+        <%= link_to user, class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+        <%= link_to edit_user_path(user), class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      <% else %>
+        <%= link_to user, class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+      <% end %>
+    </td>
   </tr>
-  <tr class="spacer"></tr>
 </tbody>

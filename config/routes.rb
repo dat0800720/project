@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :users
     resources :members
     resources :holidays
-    resources :requests
+    resources :requests do
+      member do
+        put "approved", to: "requests#approved"
+      end
+    end
   end
 end

@@ -1,37 +1,45 @@
 <tbody>
-  <tr class="tr-shadow">
-    <td><%= link_to member.name, member %></td>
+  <tr>
+    <td><%= member.name %></td>
     <td>
-        <%= link_to member.employee_code, member %>
+        <%= member.employee_code %>
     </td>
-    <td><%= link_to Constant::SEX[member.sex], member %></td>
+    <td><%= Constant::SEX[member.sex] %></td>
     <td>
-      <%= link_to member.bithday&.strftime("%d/%m/%Y"), member %>
-    </td>
-    <td>
-      <%= link_to member.home_town, member %>
+      <%= member.bithday&.strftime("%d/%m/%Y") %>
     </td>
     <td>
-      <%= link_to member.phone_number, member %>
+      <%= member.home_town %>
     </td>
     <td>
-      <%= link_to Constant::WORK_STATUS[member.work_status], member %>
+      <%= member.phone_number %>
     </td>
-    <% if current_user&.admin? %>
-      <td>
-        <div class="table-data-feature">
-          <button class="item" data-toggle="tooltip" data-placement="top" title="show">
-            <%= link_to '<i class="fa fa-eye"></i>'.html_safe, member %>
-          </button>
-          <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-            <%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, edit_member_path(member) %>
-          </button>
-          <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-            <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, member, method: :delete, data: { confirm: "bạn chắc chứ?" } %>
-          </button>
-        </div>
-      </td>
-    <% end %>
+    <td>
+      <%= Constant::WORK_STATUS[member.work_status] %>
+    </td>
+    <td class="project-actions text-right">
+      <% if current_user&.admin? %>
+        <%= link_to member, class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+        <%= link_to edit_member_path(member), class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= link_to member, class: "btn btn-primary btn-sm", method: :delete, data: { confirm: t("health_festival.are_you_sure") } do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      <% elsif current_user.member&.id == member.id %>
+        <%= link_to member, class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+        <%= link_to edit_member_path(member), class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      <% else %>
+        <%= link_to member, class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+      <% end %>
+    </td>
   </tr>
-  <tr class="spacer"></tr>
 </tbody>

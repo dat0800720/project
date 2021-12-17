@@ -1,54 +1,103 @@
-<div class="row">
-  <div class="col-lg-8" style="margin: auto">
-    <div class="au-card recent-report">
-      <div class="au-card-inner">
-        <h3 class="title-2" style="text-align: center; margin-bottom: 30px;"><%= @request.holiday.name %></h3>
-        <div class="chart-info">
-          <div class="chart-info__left">
-            <div class="chart-note">
-              Người gửi: <span><%= @request.member.name %></span>
-            </div>
-          </div>
-          <div class="chart-info__right">
-            <div class="chart-statis">
-              Ngày gửi: <span><%= @request.created_at&.strftime("%H : %M -- %d/%m/%Y ") %></span>
-            </div>
-          </div>
-        </div>
-        <% @request.break_times.each do |break_time| %>
-          <div class="chart-info">
-            <div class="chart-info__left">
-              <div class="chart-note">
-                xin nghỉ ngày:
-                <span>
-                  <%= break_time.day&.strftime("%d/%m/%Y ") %> 
-                  <% if break_time.start_time.present? && break_time.end_time.present? %>
-                    Từ: <%= break_time.start_time&.strftime("%H : %M") %> đến <%= break_time.end_time&.strftime("%H : %M") %>
-                  <% end %>
-                </span>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <% if current_user.member&.id == @request.member_id %>
+            <li class="breadcrumb-item"><%= link_to t("boby.edit"), edit_request_path, class: "btn btn-primary" %></a></li>
+          <% end %>
+          <% if @request.member_requests.where(type_recipient: 0).pluck(:member_id).include?(User.current.member&.id) %>
+            <li class="breadcrumb-item"><%= link_to "approved", approved_request_path(@request), method: :put, class: "btn btn-primary" %></a></li>
+          <% end %>
+          <% if @request.member_requests.where(type_recipient: 0).pluck(:member_id).include?(User.current.member&.id) %>
+            <li class="breadcrumb-item"><%= link_to "reject", edit_request_path(@request), class: "btn btn-primary" %></a></li>
+          <% end %>
+          <li class="breadcrumb-item"><%= link_to t("boby.quit"), requests_path, class: "btn btn-primary" %></a></li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<% if @request.request_status == 3 %>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- /.col -->
+        <div class="col-md-12">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="card-title"><%= t("training.content") %>:</h3></br>
+              <div class="card-header2">
+                <%= @request.comment %>
               </div>
             </div>
+            <!-- /.card-footer -->
           </div>
-        <% end %>
-        <% @request.member_requests.approver.each do |a| %>
-          <div class="chart-info">
-            <div class="chart-note">
-              Người theo dõi: <%= a.member.name %>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+    <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+<% end %>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- /.col -->
+      <div class="col-md-12">
+        <div class="card card-primary card-outline">
+          <div class="card-header">
+            <h3 class="card-title">Người gửi: <%= @request.member.name %></h3>
+            <div class="card-tools">
+              <p class="btn btn-tool" title="Previous">thời gian gửi: <%= @request.created_at&.strftime("%H : %M -- %d/%m/%Y ") %></p>
             </div>
           </div>
-        <% end %>
-          <div class="chart-info">
-            <div class="chart-note">
-            Người chấp nhận: 
+          <div class="card-header">
+            <h3 class="card-title">lý do: <%= @request.holiday.name %></h3>
+            <div class="card-tools">
+              <p class="btn btn-tool" title="Previous">Trạng thái đơn: <%= @request.request_status %></p>
+            </div>
+          </div>
+          <div class="card-header2">
+            Người nhận: 
+            <% @request.member_requests.approver.each do |a| %>
+              <%= a.member.name %>.
+            <% end %>
+          </div>
+          <div class="card-header2">
+            Người theo dõi: 
             <% @request.member_requests.follower.each do |a| %>
               <%= a.member.name %>.
             <% end %>
+          </div>
+          <!-- /.card-header -->
+          <% @request.break_times.each do |break_time| %>
+              <div class="card-header2">
+                Xin nghỉ ngày: 
+                <%= break_time.day&.strftime("%d/%m/%Y ") %>
+                <% if break_time.start_time.present? && break_time.end_time.present? %>
+                  Từ: <%= break_time.start_time&.strftime("%H:%M") %> đến <%= break_time.end_time&.strftime("%H:%M") %>
+                <% end %>
+              </div>
+          <% end %>
+          <div class="card-header">
+            <h3 class="card-title"><%= t("training.content") %>:</h3></br>
+            <div class="card-header2">
+              <%= @request.content %>
             </div>
           </div>
-        <div class="chart-statis">
-          Nội dung: <span class="label" style="padding-left: 20px"><%= @request.content %></span>
+          <!-- /.card-footer -->
         </div>
+        <!-- /.card -->
       </div>
+      <!-- /.col -->
     </div>
-  </div>
-</div>
+  <!-- /.row -->
+  </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
