@@ -1,22 +1,20 @@
 <tbody>
-  <tr class="tr-shadow">
-    <td><%= link_to request.holiday.name, request %></td>
-    <td><%= link_to request.member.name, request %></td>
-    <% if current_user&.admin? %>
-      <td>
-        <div class="table-data-feature">
-          <button class="item" data-toggle="tooltip" data-placement="top" title="show">
-            <%= link_to '<i class="fa fa-eye"></i>'.html_safe, request %>
-          </button>
-          <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-            <%= link_to '<i class="zmdi zmdi-edit"></i>'.html_safe, edit_request_path(request) %>
-          </button>
-          <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-            <%= link_to '<i class="zmdi zmdi-delete"></i>'.html_safe, request, method: :delete, data: { confirm: "bạn chắc chứ?" } %>
-          </button>
-        </div>
+  <tr>
+    <td><%= request.holiday.name %></td>
+    <td><%= request.request_status %></td>
+    <td><%= request.member.name %></td>
+    <% if current_user.member&.id == request.member_id %>
+      <td class="project-actions text-right">
+        <%= link_to request, class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+        <%= link_to edit_request_path(request), class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= link_to request, class: "btn btn-primary btn-sm", method: :delete, data: { confirm: t("health_festival.are_you_sure") } do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
       </td>
     <% end %>
   </tr>
-  <tr class="spacer"></tr>
 </tbody>

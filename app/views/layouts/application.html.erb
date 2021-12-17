@@ -11,51 +11,37 @@
 
     <!-- Fontfaces CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-    <link href="https://colorlib.com/polygon/cooladmin/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
-
-    <!-- CoolAdmin-master/Vendor CSS-->
-    <link href="https://colorlib.com/polygon/cooladmin/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
   </head>
 
-  <body class="animsition">
-        <% if user_signed_in? %>
-          <% if current_user.admin? %>
-            <%= render "layouts/header_admin" %>
-          <% else %>
-            <%= render "layouts/header_staff" %>
-            <div class="page-content--bgf7">
-              <%= yield %>
-            </div>
-          <% end %>
+  <body>
+    <div class="wrapper">
+      <% if user_signed_in? %>
+        <% if current_user.admin? %>
+          <%= render "layouts/header_admin" %>
+          <div class="content-wrapper">
+            <% flash.each do |key, msg| %>
+              <% if key == "success" %>
+                <%= content_tag :div, msg, class: "alert alert-success" %>   
+              <% end %>
+              <% if key == "danger" %>
+                <%= content_tag :div, msg, class: "alert alert-warning" %>  
+              <% end %>
+            <% end %>
+            <%= yield %>
+          </div>
         <% else %>
-        <div class="layouts/header_staff">
-          <%= yield %>
-        </div>
+          <%= render "layouts/header_staff" %>
+          <div class="page-content--bgf7">
+            <%= yield %>
+          </div>
         <% end %>
-    <script src="https://colorlib.com/polygon/cooladmin/vendor/animsition/animsition.min.js"></script>
-    <!-- Main JS-->
-    <script src="https://colorlib.com/polygon/cooladmin/js/main.js"></script>
-    <script>
-
-      function openNav() {
-        document.getElementById("sidebar").style.width = "300px";
-        document.getElementById("test").style.paddingLeft = "300px";
-        document.getElementById("test2").style.left = "300px";
-        document.getElementById("sidebarCollapse2").style.display = "none";
-        document.getElementById("sidebarCollapse1").style.display = "block";
-      }
-
-      function closeNav() {
-        document.getElementById("sidebar").style.width = "0";
-        document.getElementById("test").style.paddingLeft= "0";
-        document.getElementById("test2").style.left= "0";
-        document.getElementById("sidebarCollapse1").style.display = "none";
-        document.getElementById("sidebarCollapse2").style.display = "block";
-      }
-    </script>
+      <% else %>
+        <%= yield %>
+      <% end %>
+      <script src="https://adminlte.io/themes/v3/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </div>
   </body>
 </html>

@@ -1,20 +1,26 @@
 <%= form_for(@holiday) do |f| %>
-  <%= render "devise/shared/error_messages", resource: @holiday %>
-  <div class="col-md-12" style="margin: auto;">
-    <div class="card mb-3">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-sm-3">
-            <h6 class="mb-0"> Loại ngày nghỉ </h6>
+  <section class="content">
+    <%= render "devise/shared/error_messages", resource: @holiday%>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-secondary">
+          <div class="card-header">
+            <h3 class="card-title"><%= t("member.member") %></h3>
           </div>
-          <div class="col-sm-9 text-secondary">
-            <%= f.text_field :name, class:"au-input au-input--full", placeholder:"Loại ngày nghỉ", autofocus: true, autocomplete: "name" %>
+          <div class="card-body">
+            <div class="form-group">
+              <label>Loại ngày nghỉ</label>
+              <%= f.text_field :name, class: "form-control", placeholder:"Username", autofocus: true, autocomplete: "name" %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-sm-4", style="margin: auto;">
-    <%= f.submit "submit", class:"au-btn au-btn--block au-btn--green m-b-20" %>
-  </div>
+    <div class="row">
+      <div class="col-12">
+        <%= link_to t("boby.back"), members_path, class: "btn btn-secondary" %>
+        <%= f.submit t("boby.submit"), class: "btn btn-success float-right" %>
+      </div>
+    </div>
+  </section>
 <% end %>
