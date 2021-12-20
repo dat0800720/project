@@ -1,26 +1,28 @@
-<%= form_for(@holiday) do |f| %>
-  <section class="content">
-    <%= render "devise/shared/error_messages", resource: @holiday%>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card card-secondary">
-          <div class="card-header">
-            <h3 class="card-title"><%= t("member.member") %></h3>
-          </div>
-          <div class="card-body">
-            <div class="form-group">
-              <label>Loại ngày nghỉ</label>
-              <%= f.text_field :name, class: "form-control", placeholder:"Username", autofocus: true, autocomplete: "name" %>
+<div class="col-md-10 m-auto">  
+  <%= form_for(@holiday) do |f| %>
+    <section class="content">
+      <%= render "devise/shared/error_messages", resource: @holiday%>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-secondary">
+            <div class="card-header">
+              <h3 class="card-title"><%= t("member.member") %></h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label><%= t("holiday.name") %></label>
+                <%= f.text_field :name, class: "form-control", placeholder:t("holiday.name"), autofocus: true, autocomplete: "name" %>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <%= link_to t("boby.back"), members_path, class: "btn btn-secondary" %>
-        <%= f.submit t("boby.submit"), class: "btn btn-success float-right" %>
+      <div class="row">
+        <div class="col-12">
+          <%= link_to t("boby.back"), members_path, class: "btn btn-secondary" %>
+          <%= f.submit t("boby.submit"), class: "btn btn-success float-right" %>
+        </div>
       </div>
-    </div>
-  </section>
-<% end %>
+    </section>
+  <% end %>
+</div>

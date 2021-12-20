@@ -1,33 +1,64 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  user:
+    search_user_type:
+      0: Employee
+      1: Admin
+    show_user_type:
+      staff: Employee 
+      admin: admin
+    activate: Activate
+    lock: Lock
+    password: Password
+    password_confirmation: Password Confirmation
+    cover_image: Cover Image
+    current_user: Current user
+  boby:
+    search: Search
+    submit: Submit
+  member:
+    working: Working
+    quit_my_job: Quit my job
+    male: Male
+    female: Female
+    is_different: Is different
+    full_name: Full name
+    employee: Employee
+    home_town: Home town
+    working: Working
+    quit_my_job: Quit my job
+    nationality: Nationality
+    nation: Nation
+    religion: Religion
+    Gender: Gender
+    permanent_address: Permanent Address
+    current_address: Current Address
+    marriage: Marriage
+    identity_card: Identity Card
+    date_issued: Date issued
+    issued_at: Issued at
+    seniority: Seniority
+    presenter: Presenter
+    bank_account: Bank account
+    bank_name: Bank name
+    license_plates: License plates
+    vehicle_brand: Vehicle brand
+    vehicle_color: Vehicle color
+    phone_number: Phone number
+    relatives_phone: Relatives phone
+  holiday:
+    name: Holiday reason
+  request:
+    manage: Manage request
+    create_request: Create request
+    edit_request: Edit request
+    send_request: Send request
+    inbox: Inbox
+    draft: Draft
+    sender: Sender
+    sent: Sent
+    approved: Approved
+    disable: Disable
+    reject: Reject
+    submit: Submit
+    draft_submit: Draft submit
+

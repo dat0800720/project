@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-12">
-        <h1><%= t("training.training") %></h1>
+        <h1><%= t("user.manage") %></h1>
       </div>
     </div>
   </div><!-- /.container-fluid -->
@@ -17,7 +17,7 @@
       <%= search_form_for @search, class: "form-inline" do |f| %>
         <div class="input-group rounded col-md-12 center">
           <div class="col-md-3">
-            <label>name</label>
+            <label><%= t("user.user_name") %></label>
             <%= f.text_field :name_cont, class: "form-control width_full" %>
           </div>
           <div class="col-md-3">
@@ -25,16 +25,16 @@
             <%= f.text_field :email_cont, class: "form-control width_full" %>
           </div>
           <div class="col-md-3">
-            <label>user type</label>
+            <label><%= t("user.user_type") %></label>
             <%= f.select :user_type_eq, select_type("user.search_user_type") %> 
           </div>
           <div class="col-md-2">
-            <label>status</label>
+            <label><%= t("user.status") %></label>
             <%= f.select :status_eq, Constant::STATUS.invert %>
           </div>
           <div class="col-md-1">
             <h3 style="height:25%"></h3>
-            <%= f.submit "search", class: "btn btn-success" %>
+            <%= f.submit t("boby.search"), class: "btn btn-success" %>
           </div>
         </div>
       <% end %>
@@ -44,11 +44,11 @@
         <thead>
           <tr>
             <th>id</th>
-            <th>name</th>
+            <th><%= t("user.user_name") %></th>
             <th>email</th>
-            <th>user type</th>
-            <th>status</th>
-            <th class="text-right">thao tác</th>
+            <th><%= t("user.user_type") %></th>
+            <th><%= t("user.status") %></th>
+            <th class="text-right"><%= t("boby.action") %></th>
           </tr>
         </thead>
         <%= render @users%>

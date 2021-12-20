@@ -9,8 +9,8 @@
               <%= image_tag @member.user.image if @member.user.image.attached? %>
             </div>
             <div style="display: flex">
-              <%= link_to 'Edit Member', edit_member_path(@member), class: "btn btn-dark btn-sm width50" %>
-              <%= link_to 'Delete', @member, method: :delete, data: { confirm: "bạn chắc chứ?" }, class:"btn btn-dark btn-sm width50" %>
+              <%= link_to t("member.edit_member"), edit_member_path(@member), class: "btn btn-dark btn-sm width50" %>
+              <%= link_to t("member.delete"), @member, method: :delete, data: { confirm: "bạn chắc chứ?" }, class:"btn btn-dark btn-sm width50" %>
             </div>
           </div>
           <div class="media-body mb-5 text-white">
@@ -36,7 +36,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0"> Họ và tên </h6>
+              <h6 class="mb-0"><%= t("member.full_name") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.name %>
@@ -45,7 +45,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Mã thành viên</h6>
+              <h6 class="mb-0"><%= t("member.employee") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.employee_code %>
@@ -54,7 +54,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Ngày sinh</h6>
+              <h6 class="mb-0"><%= t("member.bithday") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.bithday&.strftime("%d/%m/%Y") %>
@@ -63,7 +63,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Quốc tịch</h6>
+              <h6 class="mb-0"><%= t("member.nationality") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.nationality %>
@@ -72,7 +72,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Dân tộc</h6>
+              <h6 class="mb-0"><%= t("member.nation") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.nation %>
@@ -81,7 +81,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Tôn giáo</h6>
+              <h6 class="mb-0"><%= t("member.religion") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.religion %>
@@ -90,7 +90,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Giới tính</h6>
+              <h6 class="mb-0"><%= t("member.Gender") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= Constant::SEX[@member.sex] %>
@@ -99,7 +99,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Quê quán</h6>
+              <h6 class="mb-0"><%= t("member.home_town") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.home_town %>
@@ -108,7 +108,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Địa chỉ thường trú</h6>
+              <h6 class="mb-0"><%= t("member.permanent_address") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.permanent_address %>
@@ -117,7 +117,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Nơi ở hiện nay</h6>
+              <h6 class="mb-0"><%= t("member.current_address") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.current_address %>
@@ -126,7 +126,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Tình trạng hôn nhân</h6>
+              <h6 class="mb-0"><%= t("member.marriage") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.marriage %>
@@ -135,7 +135,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Trạng thái làm việc</h6>
+              <h6 class="mb-0"><%= t("member.work_status") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= Constant::WORK_STATUS[@member.work_status] %>
@@ -149,7 +149,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0"> Số chứng minh nhân dân</h6>
+              <h6 class="mb-0"><%= t("member.identity_card") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.identity_card %>
@@ -158,7 +158,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Ngày cấp</h6>
+              <h6 class="mb-0"><%= t("member.date_issued") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.date_issued %>
@@ -167,7 +167,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Nơi cấp</h6>
+              <h6 class="mb-0"><%= t("member.issued_at") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.issued_at %>
@@ -176,7 +176,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Thâm niên làm việc</h6>
+              <h6 class="mb-0"><%= t("member.seniority") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.seniority %>
@@ -185,7 +185,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Người giới thiệu</h6>
+              <h6 class="mb-0"><%= t("member.presenter") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.presenter %>
@@ -194,7 +194,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Số tài khoản ngân hàng</h6>
+              <h6 class="mb-0"><%= t("member.bank_account") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.bank_account %>
@@ -203,7 +203,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Tên tài khoản ngân hàng</h6>
+              <h6 class="mb-0"><%= t("member.bank_name") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.bank_name %>
@@ -212,7 +212,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Biển số xe</h6>
+              <h6 class="mb-0"><%= t("member.license_plates") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.license_plates %>
@@ -221,7 +221,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Hãng xe</h6>
+              <h6 class="mb-0"><%= t("member.vehicle_brand") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.vehicle_brand %>
@@ -230,7 +230,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Màu xe</h6>
+              <h6 class="mb-0"><%= t("member.vehicle_color") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.vehicle_color %>
@@ -239,7 +239,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Số điện thoại</h6>
+              <h6 class="mb-0"><%= t("member.phone_number") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.phone_number %>
@@ -248,7 +248,7 @@
           <hr>
           <div class="row">
             <div class="col-sm-4">
-              <h6 class="mb-0">Số điện thoại người thân</h6>
+              <h6 class="mb-0"><%= t("member.relatives_phone") %></h6>
             </div>
             <div class="col-sm-8 text-secondary">
               <%= @member.relatives_phone %>

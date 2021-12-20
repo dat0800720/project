@@ -32,7 +32,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-sm-3">
-            <h6 class="mb-0"> Name</h6>
+            <h6 class="mb-0"> <%= t("user.user_name") %></h6>
           </div>
           <div class="col-sm-9 text-secondary">
             <%= @user.name %>
@@ -50,16 +50,16 @@
         <hr>
         <div class="row">
           <div class="col-sm-3">
-            <h6 class="mb-0">User Type</h6>
+            <h6 class="mb-0"><%= t("user.user_type") %></h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <%= @user.user_type %>
+            <%= t("user.show_user_type.#{@user.user_type}") %>
           </div>
         </div>
         <hr>
         <div class="row">
           <div class="col-sm-3">
-            <h6 class="mb-0">Status</h6>
+            <h6 class="mb-0"><%= t("user.status") %></h6>
           </div>
           <div class="col-sm-9 text-secondary">
             <%= Constant::STATUS[@user.status] %>
@@ -68,7 +68,7 @@
         <hr>
         <div class="row">
           <div class="col-sm-3">
-            <h6 class="mb-0">Liên lạc chính</h6>
+            <h6 class="mb-0"><%= t("user.main_contact") %></h6>
           </div>
           <div class="col-sm-9 text-secondary">
             <%= @user.notes %>

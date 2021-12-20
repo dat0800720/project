@@ -12,7 +12,7 @@
     <!-- Notifications Dropdown Menu -->
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= t("boby.language") %>
+        <%= t("header.language") %>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <%= link_to  locale:"en" do %>
@@ -30,7 +30,7 @@
     </li>
     <li class="nav-item dropdown">
       <a class="nav-link" data-toggle="dropdown" href="#">
-        icon setting
+        <i class="fas fa-user-cog"></i>
       </a>
       <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
         <%= link_to user_path(current_user), class:"dropdown-item" do %>
@@ -38,10 +38,10 @@
         <% end %>
         <div class="dropdown-divider"></div>
         <%= link_to edit_user_path(current_user), class:"dropdown-item" do %>
-          <i class="fas fa-envelope mr-2"></i> Edit profile
+          <i class="fas fa-envelope mr-2"></i> <%= t("header.edit_profile") %>
         <% end %>
         <%= link_to edit_user_registration_path, class:"dropdown-item" do %>
-          <i class="fas fa-envelope mr-2"></i> Change the password
+          <i class="fas fa-envelope mr-2"></i> <%= t("header.change_the_password") %>
         <% end %>
         <div class="dropdown-item">
           <%= link_to t("header.logout"), destroy_user_session_path, method: :delete, class: "nav-link"%>
@@ -56,7 +56,7 @@
   <!-- Brand Logo -->
   <a href="index3.html" class="brand-link">
     <img src="dist/img/AdminLTELogo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">HRM MANAGE</span>
+    <span class="brand-text font-weight-light"><%= t("header.hrm") %></span>
   </a>
 
   <!-- Sidebar -->
@@ -80,7 +80,7 @@
           <a href="#" class="nav-link active">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
-              Dashboard
+              <%= t("header.home") %>
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
@@ -106,11 +106,10 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="pages/calendar.html" class="nav-link">
+          <a href="#" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
-              Calendar
-              <span class="badge badge-info right">2</span>
+              <%= t("header.room_meeting_schedule") %>
             </p>
           </a>
         </li>
@@ -118,7 +117,7 @@
           <%= link_to users_path, class: "nav-link" do %>
             <i class="nav-icon fa fa-users"></i>
             <p>
-              Users
+              <%= t("header.user") %>
             </p>
           <% end %>
         </li>
@@ -126,23 +125,23 @@
           <%= link_to members_path, class: "nav-link" do %>
             <i class="nav-icon fa fa-users"></i>
             <p>
-              Members
+              <%= t("header.member") %>
             </p>
           <% end %>
         </li>
         <li class="nav-item">
           <%= link_to holidays_path, class: "nav-link" do %>
-            <i class="nav-icon fa fa-users"></i>
+            <i class="nav-icon far fa-list-alt"></i>
             <p>
-              Holiday
+              <%= t("header.holiday") %>
             </p>
           <% end %>
         </li>
         <li class="nav-item">
           <%= link_to requests_path, class: "nav-link" do %>
-            <i class="nav-icon fa fa-users"></i>
+            <i class="nav-icon fa fa-clipboard-list"></i>
             <p>
-              Request
+              <%= t("header.request") %>
             </p>
           <% end %>
         </li>

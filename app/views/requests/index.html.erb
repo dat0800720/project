@@ -12,16 +12,16 @@
           <% end %>
         <% end %>
         <%= link_to requests_path(a: "send"), class: "btn btn-primary" do %>
-          <i class="fa fa-plus"> Đơn đã gửi </i>
+          <i class="fa fa-plus"> <%= t("request.send_request") %></i>
         <% end %>
         <%= link_to requests_path(a: "followed"), class: "btn btn-primary" do %>
-          <i class="fa fa-plus"> Đơn theo dõi </i>
+          <i class="fa fa-plus"> <%= t("request.followed") %> </i>
         <% end %>
         <%= link_to requests_path(a: "approved"), class: "btn btn-primary" do %>
-          <i class="fa fa-plus"> Đơn được gửi </i>
+          <i class="fa fa-plus"> <%= t("request.inbox") %></i>
         <% end %>
         <%= link_to requests_path(a: "draft"), class: "btn btn-primary" do %>
-          <i class="fa fa-plus"> Đơn nháp </i>
+          <i class="fa fa-plus"> <%= t("request.draft") %></i>
         <% end %>
       </div>
     </div>
@@ -36,10 +36,10 @@
       <table class="table table-striped projects">
         <thead>
           <tr>
-            <th>Loại ngày nghỉ</th>
-            <th>Trạng thái đơn</th>
-            <th>Người gửi</th>
-            <th class="text-right">thao tác</th>
+            <th><%= t("holiday.name") %></th>
+            <th><%= t("request.request_status") %></th>
+            <th><%= t("request.sender") %></th>
+            <th class="text-right"><%= t("boby.action") %></th>
           </tr>
         </thead>
         <%= render @requests%>

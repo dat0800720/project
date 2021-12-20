@@ -1,0 +1,13 @@
+vi:
+  errors:
+    messages:
+      not_saved: "Không thành công"
+  activerecord:
+    attributes:
+      holiday:
+    errors:
+      models:
+        request:
+          attributes:
+            holiday:
+              required: "Cần có lí do nghỉ"
