@@ -58,7 +58,7 @@ class RequestsController < ApplicationController
 
   private
   def find_request
-    @request = Request.includes.find_by(id: params[:id])
+    @request = Request.includes(:break_times).find_by(id: params[:id])
     unless @request
       redirect_to root_path
     end

@@ -40,7 +40,10 @@ class Request < ApplicationRecord
 
   def check_button
     self.request_status = 0 if self.button_draft.present? && self.button_draft.to_s == "submit"
+    self.request_status = 0 if self.button_draft.present? && self.button_draft.to_s == "Gửi đơn từ"
     self.request_status = 1 if self.button_draft.present? && self.button_draft.to_s == "draft"
-    self.request_status = 3 if self.button_draft.present? && self.button_draft.to_s == "update_reject"
+    self.request_status = 1 if self.button_draft.present? && self.button_draft.to_s == "Thêm vào tin nháp"
+    self.request_status = 3 if self.button_draft.present? && self.button_draft.to_s == "reject"
+    self.request_status = 3 if self.button_draft.present? && self.button_draft.to_s == "Từ chối đơn"
   end
 end

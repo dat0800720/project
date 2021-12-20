@@ -1,7 +1,18 @@
 vi:
   header:
     logout: Đăng xuất
+    hrm: Quản lý HRM
+    user: Người dùng
+    member: Nhân viên
+    holiday: Loại ngày nghỉ
+    request: Đơn từ
+    language: Ngôn ngữ
+    edit_profile: Sửa hồ sơ
+    change_the_password: Đổi mật khẩu
+    home: Trang chủ
+    room_meeting_schedule: Lịch phòng họp
   log_in:
+    welcome: Chào mừng đến với HRM
     sign_in: Đăng nhập
     forgot_your_password: Quên mật khẩu?
     password: mật khẩu
@@ -26,9 +37,95 @@ vi:
     search: Tìm kiếm
     quit: Quay lại
     language: Ngôn ngữ
-    slug_auto: Slug tự động
     edit: Chỉnh sửa
+    action: Thao tác
+    search: Tìm kiếm
+    are_you_sure?: Bạn chắc chứ?
   user:
     search_user_type:
       0: Nhân viên
       1: Admin
+    user_name: Họ và tên
+    user_type: Loại người dùng 
+    status: Trạng thái
+    main_contact: Liên lạc chính
+    password: Mật khẩu
+    password_confirmation: Nhập lại mật khẩu
+    edit_user: Chỉnh sửa thông tin người dùng
+    current_user: Mật khẩu hiện tại
+    activate: Hoạt động
+    lock: Khóa
+    cover_image: Ảnh bìa
+    manage: Quản lý người dùng
+    show_user_type:
+      staff: Thường 
+      admin: admin
+  member:
+    manage: quản lý thành viên
+    full_name: Họ và tên
+    employee: Mã nhân viên
+    bithday: Ngày sinh
+    work_status: Trạng thái làm việc
+    home_town: Quê quán
+    working: Đang làm việc
+    quit_my_job: Đã thôi việc
+    nationality: Quốc tịch
+    nation: Dân tộc
+    religion: Tôn giáo
+    Gender: giới tính
+    male: Nam
+    female: Nữ
+    is_different: Khác
+    permanent_address: Địa chỉ thường trú
+    current_address: Nơi ở hiện nay
+    marriage: Tình trạng hôn nhân
+    identity_card: Chứng minh thư nhân dân
+    date_issued: ngày cấp
+    issued_at: Nơi cấp
+    seniority: Thâm niên làm việc
+    presenter: Người giới thiệu
+    bank_account: Tài khoản ngân hàng
+    bank_name: Tên ngân hàng
+    license_plates: Biển số xe
+    vehicle_brand: Hãng xe
+    vehicle_color: Màu xe
+    phone_number: Số điện thoại
+    relatives_phone: Số điện thoại người thân
+    edit_member: Chỉnh sửa
+    delete: xóa
+    title_edit_member: Chỉnh sửa thành viên
+    create_member: Tạo mới thành viên
+  holiday:
+    manage: Quản lý loại ngày nghỉ
+    name: Lý do nghỉ
+    create_holiday: Tạo mới loại ngày nghỉ
+    edit_holiday: Chỉnh sửa loại ngày nghỉ
+  request:
+    manage: Quản lý đơn xin nghỉ
+    create_request: Tạo đơn mới
+    edit_request: Chỉnh sửa đơn từ
+    send_request: đơn đã gửi
+    followed: Đơn theo dõi
+    inbox: Đơn đến
+    draft: Đơn nháp
+    request_status: Trạng thái đơn
+    sender: Người gửi
+    sent: Đã gửi
+    approved: Đã duyệt
+    disable: Bị từ chối
+    followers: Người theo dõi
+    accepter: Người chấp thuận
+    content: Nội dung
+    break_time: Thời gian nghỉ
+    add_break_time: Thêm ngày nghỉ
+    remove_break_time: Xóa ngày nghỉ
+    start_time: Thời gian bắt đầu
+    end_time: Thời gian kết thúc
+    day: Ngày
+    comment: Bình luận
+    submit: Gửi đơn từ
+    draft_submit: Thêm vào tin nháp
+    reject: Từ chối đơn
+    choose_the_holiday: Chọn lý do nghỉ
+    mailing_time: Thời gian gửi
+    time_off: Thời gian nghỉ

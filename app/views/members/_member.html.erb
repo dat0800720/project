@@ -4,15 +4,11 @@
     <td>
         <%= member.employee_code %>
     </td>
-    <td><%= Constant::SEX[member.sex] %></td>
     <td>
       <%= member.bithday&.strftime("%d/%m/%Y") %>
     </td>
     <td>
       <%= member.home_town %>
-    </td>
-    <td>
-      <%= member.phone_number %>
     </td>
     <td>
       <%= Constant::WORK_STATUS[member.work_status] %>
@@ -25,7 +21,7 @@
         <%= link_to edit_member_path(member), class: "btn btn-primary btn-sm" do %>
           <i class="fas fa-edit"></i>
         <% end %>
-        <%= link_to member, class: "btn btn-primary btn-sm", method: :delete, data: { confirm: t("health_festival.are_you_sure") } do %>
+        <%= link_to member, class: "btn btn-primary btn-sm", method: :delete, data: { confirm: t("boby.are_you_sure?") } do %>
           <i class="fas fa-trash"></i>
         <% end %>
       <% elsif current_user.member&.id == member.id %>

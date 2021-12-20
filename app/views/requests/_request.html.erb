@@ -1,7 +1,7 @@
 <tbody>
   <tr>
     <td><%= request.holiday.name %></td>
-    <td><%= request.request_status %></td>
+    <td><%= Constant::REQUEST_STATUS[request.request_status] %></td>
     <td><%= request.member.name %></td>
     <% if current_user.member&.id == request.member_id %>
       <td class="project-actions text-right">
@@ -11,7 +11,7 @@
         <%= link_to edit_request_path(request), class: "btn btn-primary btn-sm" do %>
           <i class="fas fa-edit"></i>
         <% end %>
-        <%= link_to request, class: "btn btn-primary btn-sm", method: :delete, data: { confirm: t("health_festival.are_you_sure") } do %>
+        <%= link_to request, class: "btn btn-primary btn-sm", method: :delete, data: { confirm: t("boby.are_you_sure?") } do %>
           <i class="fas fa-trash"></i>
         <% end %>
       </td>
