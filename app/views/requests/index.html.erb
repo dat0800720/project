@@ -5,23 +5,23 @@
       <div class="col-sm-12">
         <h1><%= t("training.training") %></h1>
       </div>
-      <div class="col-sm-12" style="margin-top: 20px">
+      <div class="col-sm-12 text-right" style="margin-top: 20px">
         <% if current_user.staff? %>
           <%= link_to new_request_path, class: "btn btn-primary" do %>
             <i class="fa fa-plus"> <%= t("boby.create") %></i>
           <% end %>
-        <% end %>
-        <%= link_to requests_path(a: "send"), class: "btn btn-primary" do %>
-          <i class="fa fa-plus"> <%= t("request.send_request") %></i>
+          <%= link_to requests_path(a: "send"), class: "btn btn-primary" do %>
+            <i class="fa fa-plus"> <%= t("request.send_request") %></i>
+          <% end %>
+          <%= link_to requests_path(a: "draft"), class: "btn btn-primary" do %>
+            <i class="fa fa-plus"> <%= t("request.draft") %></i>
+          <% end %>
         <% end %>
         <%= link_to requests_path(a: "followed"), class: "btn btn-primary" do %>
           <i class="fa fa-plus"> <%= t("request.followed") %> </i>
         <% end %>
         <%= link_to requests_path(a: "approved"), class: "btn btn-primary" do %>
           <i class="fa fa-plus"> <%= t("request.inbox") %></i>
-        <% end %>
-        <%= link_to requests_path(a: "draft"), class: "btn btn-primary" do %>
-          <i class="fa fa-plus"> <%= t("request.draft") %></i>
         <% end %>
       </div>
     </div>
@@ -31,7 +31,7 @@
 <!-- Main content -->
 <section class="content">
   <!-- Default box -->
-  <div class="card">
+  <div class="card ml-4 mr-4">
     <div class="card-body p-0">
       <table class="table table-striped projects">
         <thead>

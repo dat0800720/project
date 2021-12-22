@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2021_11_30_074151) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_074151) do
   end
 
   create_table "break_times", force: :cascade do |t|
-    t.integer "request_id", null: false
+    t.bigint "request_id", null: false
     t.time "start_time"
     t.time "end_time"
     t.date "day"
@@ -50,8 +53,8 @@ ActiveRecord::Schema.define(version: 2021_11_30_074151) do
   end
 
   create_table "member_requests", force: :cascade do |t|
-    t.integer "request_id"
-    t.integer "member_id"
+    t.bigint "request_id"
+    t.bigint "member_id"
     t.integer "type_recipient"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -60,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_074151) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "employee_code"
     t.string "name"
     t.integer "sex"
@@ -91,8 +94,8 @@ ActiveRecord::Schema.define(version: 2021_11_30_074151) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.integer "member_id", null: false
-    t.integer "holiday_id", null: false
+    t.bigint "member_id", null: false
+    t.bigint "holiday_id", null: false
     t.string "content"
     t.integer "request_status"
     t.text "comment"
