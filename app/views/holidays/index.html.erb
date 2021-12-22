@@ -5,11 +5,13 @@
       <div class="col-sm-12">
         <h1><%= t("holiday.manage") %></h1>
       </div>
-      <div class="col-sm-12" style="margin-top: 20px">
-        <%= link_to new_holiday_path, class: "btn btn-primary" do %>
-          <i class="fa fa-plus"> <%= t("boby.create") %></i>
-        <% end %>
-      </div>
+      <% if current_user.admin? %>
+        <div class="col-sm-12 text-right" style="margin-top: 20px">
+          <%= link_to new_holiday_path, class: "btn btn-primary" do %>
+            <i class="fa fa-plus"> <%= t("boby.create") %></i>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div><!-- /.container-fluid -->
 </section>
@@ -17,7 +19,7 @@
 <!-- Main content -->
 <section class="content">
   <!-- Default box -->
-  <div class="card">
+  <div class="card ml-4 mr-4">
     <div class="card-body p-0">
       <table class="table table-striped projects">
         <thead>

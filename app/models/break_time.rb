@@ -5,7 +5,7 @@ class BreakTime < ApplicationRecord
   validates :start_time, presence: true
   validates :end_time, presence: true
   validate :start_end_check
-  validate :overlap_check
+  # validate :overlap_check
 
   def start_end_check
     errors.add(:end_time, "Vui lòng chọn thời gian muộn hơn thời gian bắt đầu") if self.start_time.to_f > self.end_time.to_f
