@@ -23,7 +23,7 @@ User.first.update!(
   status: 0
 )
 user = User.first
-user.image.attach(io: File.open("/home/dat/project/app/assets/images/me.jpg"), filename: "me.jpg")
+user.image.attach(io: File.open("https://scontent.fhan2-2.fna.fbcdn.net/v/t1.6435-9/184195593_1122414171578769_410629092735722898_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=174925&_nc_ohc=FbkV52O-TawAX_eV3j1&tn=oU5oKzATQ8cEf7Hx&_nc_ht=scontent.fhan2-2.fna&oh=00_AT8ILu-oQWn5VwkcB51xsMSlkNEWioQhEpJB0EJOmmVzmA&oe=61E798ED"), filename: "me.jpg")
 
 if Holiday.none?
   Holiday.create!(name: "Nghỉ cưới")
