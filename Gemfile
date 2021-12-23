@@ -28,6 +28,7 @@ gem 'rails-i18n'
 gem "pagy"
 gem "cocoon"
 gem "select2-rails"
+gem 'aws-sdk-s3', require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
