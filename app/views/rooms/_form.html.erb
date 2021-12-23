@@ -1,0 +1,32 @@
+<div class="col-md-10 m-auto">  
+  <%= form_for(@room) do |f| %>
+    <section class="content">
+      <%= render "devise/shared/error_messages", resource: @room%>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-secondary">
+            <div class="card-header">
+              <h3 class="card-title"><%= t("member.member") %></h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label><%= t("room.name") %></label>
+                <%= f.text_field :name, class: "form-control", placeholder:t("room.name"), autofocus: true, autocomplete: "name" %>
+              </div>
+              <div class="form-group">
+                <label><%= t("room.max_member") %></label>
+                <%= f.text_field :max_member, class: "form-control", placeholder:t("room.max_member") %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <%= link_to t("boby.back"), rooms_path, class: "btn btn-secondary" %>
+          <%= f.submit t("boby.submit"), class: "btn btn-success float-right" %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+</div>

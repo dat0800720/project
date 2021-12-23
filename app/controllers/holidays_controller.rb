@@ -12,10 +12,10 @@ class HolidaysController < ApplicationController
   def create
     @holiday = Holiday.new(holiday_params)
     if @holiday.save
-      flash[:success] = t("body.successfully")
+      flash[:success] = t("boby.successfully")
       redirect_to holidays_path
     else
-      flash[:danger] = t("body.unsuccessfully")
+      flash[:danger] = t("boby.unsuccessfully")
       render "new"
     end
   end
@@ -24,19 +24,19 @@ class HolidaysController < ApplicationController
 
   def update
     if @holiday.update(holiday_params)
-      flash[:success] = t("body.successfully")
+      flash[:success] = t("boby.successfully")
       redirect_to holidays_path(@holiday)
     else
-      flash[:danger] = t("body.unsuccessfully")
+      flash[:danger] = t("boby.unsuccessfully")
       render "edit"
     end
   end
 
   def destroy
     if @holiday.destroy
-      flash[:success] = t("question.successfully")
+      flash[:success] = t("boby.successfully")
     else
-      flash[:danger] = t("question.unsuccessfully")
+      flash[:danger] = t("boby.unsuccessfully")
     end
     redirect_to @holiday
   end

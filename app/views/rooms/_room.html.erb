@@ -1,0 +1,19 @@
+<tbody>
+  <tr>
+    <td><%= room.name %></td>
+    <td><%= room.max_member %></td>
+    <% if current_user&.admin? %>
+      <td class="project-actions text-right">
+        <%= link_to room_path(room), class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+        <%= link_to edit_room_path(room), class: "btn btn-primary btn-sm" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= link_to room, class: "btn btn-primary btn-sm", method: :delete, data: { confirm: t("boby.are_you_sure?") } do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+</tbody>

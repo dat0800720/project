@@ -29,6 +29,7 @@ gem "pagy"
 gem "cocoon"
 gem "select2-rails"
 gem 'aws-sdk-s3', require: false
+gem 'active_link_to'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
