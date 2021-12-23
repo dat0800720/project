@@ -23,7 +23,7 @@ User.first.update!(
   status: 0
 )
 user = User.first
-user.image.attach(io: File.open("https://project-humg-1.s3.eu-central-1.amazonaws.com/me.jpg"), filename: "me.jpg")
+user.image.attach(io: File.open(File.join(Rails.root, "app/assets/images/me.jpg")), filename: "me.jpg")
 
 if Holiday.none?
   Holiday.create!(name: "Nghỉ cưới")

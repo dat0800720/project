@@ -18,7 +18,7 @@ class Member < ApplicationRecord
     user = User.find_or_initialize_by(email: "#{self.employee_code}@rubyonring.com")
     if user.new_record?
       user.update(password: 123456, name: self.name)
-      user.image.attach(io: File.open("https://project-humg-1.s3.eu-central-1.amazonaws.com/user.png"), filename: "user.png")
+      user.image.attach(io: File.open(File.join(Rails.root, "app/assets/images/user.png")), filename: "user.png")
     end
     self.user_id = user.id
   end
