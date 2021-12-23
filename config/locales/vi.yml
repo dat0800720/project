@@ -10,7 +10,8 @@ vi:
     edit_profile: Sửa hồ sơ
     change_the_password: Đổi mật khẩu
     home: Trang chủ
-    room_meeting_schedule: Lịch phòng họp
+    room_calendar: Lịch phòng ban
+    room: Phòng ban
   log_in:
     welcome: Chào mừng đến với HRM
     sign_in: Đăng nhập
@@ -129,3 +130,6 @@ vi:
     choose_the_holiday: Chọn lý do nghỉ
     mailing_time: Thời gian gửi
     time_off: Thời gian nghỉ
+  room:
+    name: Tên phòng ban
+    max_member: Số người tối đa

@@ -15,11 +15,11 @@
                 </div>
                 <div class="form-group">
                   <label><%= t("request.followers") %></label>
-                  <%= f.select(:follower_ids, Member.all.collect {|m| [m.name, m.id]}, {}, id: "follower_ids", :multiple => true ) %>
+                  <%= f.select(:follower_ids, Member.all.collect {|m| [m.name, m.id]}.excluding([[current_user.member.name.to_s, current_user.member.id]]), {}, id: "follower_ids", :multiple => true ) %>
                 </div>
                 <div class="form-group">
                   <label><%= t("request.accepter") %></label>
-                  <%= f.select(:approver_ids, Member.all.collect {|m| [m.name, m.id]}, {}, id: "event_user_ids", :multiple => true ) %>
+                  <%= f.select(:approver_ids, Member.all.collect {|m| [m.name, m.id]}.excluding([[current_user.member.name.to_s, current_user.member.id]]), {}, id: "event_user_ids", :multiple => true ) %>
                 </div>
                 <div class="form-group">
                   <label><%= t("request.content") %></label>

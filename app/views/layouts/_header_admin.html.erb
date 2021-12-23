@@ -106,15 +106,23 @@
           </ul>
         </li>
         <li class="nav-item">
+          <%= active_link_to rooms_path, class: "nav-link" do %>
+            <i class="nav-icon fa fa-users"></i>
+            <p>
+              <%= t("header.room") %>
+            </p>
+          <% end %>
+        </li>
+        <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
-              <%= t("header.room_meeting_schedule") %>
+              <%= t("header.room_calendar") %>
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <%= link_to users_path, class: "nav-link" do %>
+          <%= active_link_to users_path, class: "nav-link" do %>
             <i class="nav-icon fa fa-users"></i>
             <p>
               <%= t("header.user") %>
@@ -122,7 +130,7 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to members_path, class: "nav-link" do %>
+          <%= active_link_to members_path, class: "nav-link" do %>
             <i class="nav-icon fa fa-users"></i>
             <p>
               <%= t("header.member") %>
@@ -130,7 +138,7 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to holidays_path, class: "nav-link" do %>
+          <%= active_link_to holidays_path, class: "nav-link" do %>
             <i class="nav-icon far fa-list-alt"></i>
             <p>
               <%= t("header.holiday") %>
@@ -138,7 +146,7 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to requests_path, class: "nav-link" do %>
+          <%= active_link_to requests_path, class: "nav-link" do %>
             <i class="nav-icon fa fa-clipboard-list"></i>
             <p>
               <%= t("header.request") %>

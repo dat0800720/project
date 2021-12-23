@@ -5,28 +5,28 @@
   </div>
   <ul class="navbar-nav m-auto">
     <li class="nav-item d-none d-sm-inline-block">
-      <%= link_to users_path, class: "nav-link" do %>
+      <%= active_link_to users_path, class: "nav-link" do %>
         <p>
           <%= t("header.user") %>
         </p>
       <% end %>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <%= link_to members_path, class: "nav-link" do %>
+      <%= active_link_to members_path, class: "nav-link" do %>
         <p>
           <%= t("header.member") %>
         </p>
       <% end %>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <%= link_to holidays_path, class: "nav-link" do %>
+      <%= active_link_to holidays_path, class: "nav-link" do %>
         <p>
           <%= t("header.holiday") %>
         </p>
       <% end %>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <%= link_to requests_path, class: "nav-link" do %>
+      <%= active_link_to requests_path, class: "nav-link" do %>
         <p>
           <%= t("header.request") %>
         </p>
