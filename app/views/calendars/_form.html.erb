@@ -1,0 +1,52 @@
+<div class="col-md-10 m-auto">  
+  <%= form_for(@calendar) do |f| %>
+    <section class="content">
+      <%= render "devise/shared/error_messages", resource: @calendar %>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-secondary">
+            <div class="card-body">
+              <div class="form-group">
+                  <label><%= t("room.name") %></label>
+                  <%= f.select(:room_id, Room.all.collect {|u| [ u.name, u.id ] }, {include_blank: t("calendar.choose_the_room")}) %>
+                </div>
+              <div class="form-group">
+                <label>Tiêu đề:</label>
+                <%= f.text_field :title, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <label>Nội dung:</label>
+                <%= f.text_field :content, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <label>Các thành viên:</label>
+                <%= f.select(:member_ids, Member.all.collect {|m| [m.name, m.id]}.excluding([[current_user.member.name.to_s, current_user.member.id]]), {}, id: "event_member_ids", :multiple => true ) %>
+              </div>
+
+              <div class="form-group">
+                <label>Thời gian bắt đầu:</label>
+                <%= f.datetime_field :start_time, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <label>Thời gian kết thúc:</label>
+                <%= f.datetime_field :end_time, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="row">
+      <div class="col-12">
+        <%= link_to t("boby.back"), calendars_path, class: "btn btn-secondary" %>
+        <%= f.submit t("boby.submit"), class: "btn btn-success float-right" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<script>
+  $("#event_member_ids").select2();
+</script>

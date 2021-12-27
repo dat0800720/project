@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_23_173552) do
+ActiveRecord::Schema.define(version: 2021_12_23_183944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,28 @@ ActiveRecord::Schema.define(version: 2021_12_23_173552) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["request_id"], name: "index_break_times_on_request_id"
+  end
+
+  create_table "calendar_members", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.bigint "calendar_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["calendar_id"], name: "index_calendar_members_on_calendar_id"
+    t.index ["member_id"], name: "index_calendar_members_on_member_id"
+  end
+
+  create_table "calendars", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "member_id", null: false
+    t.string "title"
+    t.string "content"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_calendars_on_member_id"
+    t.index ["room_id"], name: "index_calendars_on_room_id"
   end
 
   create_table "holidays", force: :cascade do |t|
@@ -130,6 +152,10 @@ ActiveRecord::Schema.define(version: 2021_12_23_173552) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "break_times", "requests"
+  add_foreign_key "calendar_members", "calendars"
+  add_foreign_key "calendar_members", "members"
+  add_foreign_key "calendars", "members"
+  add_foreign_key "calendars", "rooms"
   add_foreign_key "member_requests", "members"
   add_foreign_key "member_requests", "requests"
   add_foreign_key "members", "users"

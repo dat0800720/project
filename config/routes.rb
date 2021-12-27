@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "static_pages#home"
   scope "(:locale)", locale: /en|vi/ do
+    get "/home", to:"static_pages#home"
     resources :users
     resources :members
     resources :holidays
     resources :rooms
+    resources :calendars
     resources :requests do
       member do
         put "approved", to: "requests#approved"

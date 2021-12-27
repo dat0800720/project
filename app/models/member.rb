@@ -2,6 +2,8 @@ class Member < ApplicationRecord
   belongs_to :user, optional: true
   has_many :member_requests, dependent: :destroy
   has_many :requests, through: :member_requests
+  has_many :calendar_members, dependent: :destroy
+  has_many :calendars, through: :calendar_members
 
   before_create :create_user
   VALID_PHONE_NUMBER_REGEX = /(84|0[2|3|5|7|8|9])+([0-9]{8})\b/

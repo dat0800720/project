@@ -1,0 +1,6 @@
+<h2>Loại lịch: <%= @calendar.room.name %></h2>
+<h2>Tiêu đề: <%= @calendar.title %></h2>
+<h2>Nội dung: <%= @calendar.content %></h2>
+<h2>Thời gian bắt đầu: <%= @calendar.start_time&.strftime("%H : %M -- %d/%m/%Y ") %></h2>
+<h2>Thời gian kết thúc: <%= @calendar.end_time&.strftime("%H : %M -- %d/%m/%Y ") %></h2>
+<h2>số người tham gia:<%= @calendar.members.count %></h2>
