@@ -2,7 +2,8 @@ class RoomsController < ApplicationController
   before_action :find_room, only: [:show, :edit, :update, :destroy]
   
   def index
-    @pagy, @rooms = pagy(Room.all, items: 10)
+    @search = Room.ransack(params[:q])
+    @pagy, @rooms = pagy(@search.result, items: 10)
   end
 
   def new
