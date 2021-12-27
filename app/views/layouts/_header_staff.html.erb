@@ -5,6 +5,13 @@
   </div>
   <ul class="navbar-nav m-auto">
     <li class="nav-item d-none d-sm-inline-block">
+      <%= active_link_to home_path, class: "nav-link" do %>
+        <p>
+          <%= t("header.home") %>
+        </p>
+      <% end %>
+    <li class="nav-item">
+    <li class="nav-item d-none d-sm-inline-block">
       <%= active_link_to users_path, class: "nav-link" do %>
         <p>
           <%= t("header.user") %>
@@ -15,6 +22,20 @@
       <%= active_link_to members_path, class: "nav-link" do %>
         <p>
           <%= t("header.member") %>
+        </p>
+      <% end %>
+    </li>
+    <li class="nav-item d-none d-sm-inline-block">
+      <%= active_link_to rooms_path, class: "nav-link" do %>
+        <p>
+          <%= t("header.room") %>
+        </p>
+      <% end %>
+    </li>
+    <li class="nav-item d-none d-sm-inline-block">
+      <%= active_link_to calendars_path, class: "nav-link" do %>
+        <p>
+          <%= t("header.room_calendar") %>
         </p>
       <% end %>
     </li>
