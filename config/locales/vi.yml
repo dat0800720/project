@@ -62,7 +62,7 @@ vi:
       staff: Thường 
       admin: admin
   member:
-    manage: quản lý thành viên
+    manage: Quản lý thành viên
     full_name: Họ và tên
     employee: Mã nhân viên
     bithday: Ngày sinh
@@ -131,5 +131,14 @@ vi:
     mailing_time: Thời gian gửi
     time_off: Thời gian nghỉ
   room:
+    manage: Quản lý phòng ban
     name: Tên phòng ban
     max_member: Số người tối đa
+  calendar:
+    manage: Quản lý lịch đặt các phòng
+    calendar: Lịch
+    draggable_events: Sự kiện có thể kéo
+    remove_after_drop: Xóa khi kéo thả
+    create_calendar: Tạo lịch
+    choose_the_room: Chọn phòng ban
+

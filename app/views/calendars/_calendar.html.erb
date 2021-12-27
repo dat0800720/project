@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <%= link_to calendar do %>
+      <strong><%= calendar.time_star %> Đến <%= calendar.time_end %></strong>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to calendar.title, calendar %>
+  </td>
+  <td>
+    <% if current_user.admin? %>
+      <button id="sendMessageButton" type="submit"><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_calendar_path(calendar.id) %></button>
+      <button id="sendMessageButton" type="submit"><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, calendar, method: :delete,  data: { confirm: "bạn chắc chứ?" } %></button>
+    <% end %>
+  </td>
+</tr>
