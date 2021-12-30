@@ -8,10 +8,15 @@
             <div class="rounded mb-2 img-thumbnail " style="width: 100%">
               <%= image_tag @member.user.image if @member.user.image.attached? %>
             </div>
-            <div style="display: flex">
+            <% if current_user.admin? %>
+              <div style="display: flex">
               <%= link_to t("member.edit_member"), edit_member_path(@member), class: "btn btn-dark btn-sm width50" %>
               <%= link_to t("member.delete"), @member, method: :delete, data: { confirm: "bạn chắc chứ?" }, class:"btn btn-dark btn-sm width50" %>
-            </div>
+              </div>
+            <% elsif @member.user.id == current_user.id %>
+              <%= link_to t("member.edit_member"), edit_member_path(@member), class: "btn btn-dark btn-sm w-100" %>
+            <% else %>
+            <% end %>
           </div>
           <div class="media-body mb-5 text-white">
               <h4 class="mt-0 mb-0"><%= @member.user.name %></h4>

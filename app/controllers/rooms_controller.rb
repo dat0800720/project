@@ -19,7 +19,7 @@ class RoomsController < ApplicationController
   def update
     if @room.update(room_params)
       flash[:success] = t("boby.successfully")
-      redirect_to room_path(@room)
+      redirect_to rooms_path
     else
       flash[:danger] = t("boby.unsuccessfully")
       render "edit"
@@ -30,7 +30,7 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
     if @room.save
       flash[:success] = t("boby.successfully")
-      redirect_to @room
+      redirect_to rooms_path
     else
       flash[:danger] = t("boby.unsuccessfully")
       render "new"
@@ -40,7 +40,7 @@ class RoomsController < ApplicationController
   def destroy
     @room.destroy
     flash[:success] = t("boby.successfully")
-    redirect_to @room
+    redirect_to rooms_path
   end
 
   private

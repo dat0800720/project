@@ -15,12 +15,21 @@
             </div>
             <hr>
             <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0"><%= t("member.employee") %></h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                <%= f.text_field :employee_code, class:"form-control", placeholder:t("member.employee") %>
-              </div>
+              <% if @member.new_record? %>
+                <div class="col-sm-3">
+                  <h6 class="mb-0"><%= t("member.employee") %></h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <%= f.text_field :employee_code, class:"form-control", placeholder:t("member.employee") %>
+                </div>
+              <% else %>
+                <div class="col-sm-3">
+                  <h6 class="mb-0"><%= t("member.employee") %></h6>
+                </div>
+                <div class="col-sm-9 text-secondary p-2">
+                  <%= @member.employee_code %>
+                </div>
+              <% end %>
             </div>
             <hr>
             <div class="row">
@@ -105,12 +114,21 @@
             </div>
             <hr>
             <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0"><%= t("member.work_status") %></h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                <%= f.select :work_status,  Constant::WORK_STATUS.invert %>
-              </div>
+              <% if @member.new_record? %>
+                <div class="col-sm-3">
+                  <h6 class="mb-0"><%= t("member.work_status") %></h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <%= f.select :work_status,  Constant::WORK_STATUS.invert %>
+                </div>
+              <% else %>
+                <div class="col-sm-3">
+                  <h6 class="mb-0"><%= t("member.employee") %></h6>
+                </div>
+                <div class="col-sm-9 text-secondary p-2">
+                  <%= Constant::WORK_STATUS[@member.work_status] %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>

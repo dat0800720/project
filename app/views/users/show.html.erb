@@ -6,10 +6,15 @@
         <div class="rounded mb-2 img-thumbnail " style="width: 100%">
           <%= image_tag @user.image if @user.image.attached? %>
         </div>
-        <div style="display: flex">
-          <%= link_to 'Edit profile', edit_user_path(@user), class: "btn btn-dark btn-sm width50" %>
-          <%= link_to 'Delete', @user, method: :delete, data: { confirm: "bạn chắc chứ?" }, class:"btn btn-dark btn-sm width50" %>
-        </div>
+        <% if current_user.admin? %>
+          <div style="display: flex">
+            <%= link_to t("member.edit_member"), edit_user_path(@user), class: "btn btn-dark btn-sm width50" %>
+            <%= link_to t("member.delete"), @user, method: :delete, data: { confirm: "bạn chắc chứ?" }, class:"btn btn-dark btn-sm width50" %>
+          </div>
+        <% elsif @user.id == current_user.id %>
+          <%= link_to t("member.edit_member"), edit_user_path(@user), class: "btn btn-dark btn-sm w-100" %>
+        <% else %>
+        <% end %>
       </div>
       <div class="media-body mb-5 text-white">
         <h4 class="mt-0 mb-0"><%= @user.name %></h4>

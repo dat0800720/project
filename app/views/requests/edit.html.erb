@@ -1,4 +1,8 @@
 <div class="login-logo">
-  <h2><%= t("request.edit_request") %></h2>
+  <% if @request.member_requests.where(type_recipient: 0).pluck(:member_id).include?(User.current.member&.id) %>
+    <h2><%= t("request.respond_request") %></h2>
+  <% else %>
+    <h2><%= t("request.edit_request") %></h2>
+  <% end %>
 </div>
 <%= render 'form' %>

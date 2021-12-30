@@ -26,11 +26,11 @@
           </div>
           <div class="col-md-3">
             <label><%= t("user.user_type") %></label>
-            <%= f.select :user_type_eq, select_type("user.search_user_type") %> 
+            <%= f.select :user_type_eq, select_type("user.search_user_type"), {include_blank: ""} %> 
           </div>
           <div class="col-md-2">
             <label><%= t("user.status") %></label>
-            <%= f.select :status_eq, Constant::STATUS.invert %>
+            <%= f.select :status_eq, Constant::STATUS.invert, {include_blank: ""} %>
           </div>
           <div class="col-md-1">
             <h3 style="height:25%"></h3>

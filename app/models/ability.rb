@@ -12,6 +12,7 @@ class Ability
       can [:manage], Member
       can [:manage], Holiday
     else
+      can [:read], User
       can [:read, :update], User, id: user.id
       can [:read], Member, user_id: user.id
     end

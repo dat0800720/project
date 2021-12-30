@@ -14,19 +14,19 @@
                   <%= f.select(:holiday_id, Holiday.all.collect {|u| [ u.name, u.id ] }, {include_blank: t("request.choose_the_holiday")}) %>
                 </div>
                 <div class="form-group">
-                  <label><%= t("request.followers") %></label>
-                  <%= f.select(:follower_ids, Member.all.collect {|m| [m.name, m.id]}.excluding([[current_user.member.name.to_s, current_user.member.id]]), {}, id: "follower_ids", :multiple => true ) %>
-                </div>
-                <div class="form-group">
                   <label><%= t("request.accepter") %></label>
                   <%= f.select(:approver_ids, Member.all.collect {|m| [m.name, m.id]}.excluding([[current_user.member.name.to_s, current_user.member.id]]), {}, id: "event_user_ids", :multiple => true ) %>
                 </div>
                 <div class="form-group">
+                  <label><%= t("request.followers") %></label>
+                  <%= f.select(:follower_ids, Member.all.collect {|m| [m.name, m.id]}.excluding([[current_user.member.name.to_s, current_user.member.id]]), {}, id: "follower_ids", :multiple => true ) %>
+                </div>
+                <div class="form-group">
                   <label><%= t("request.content") %></label>
-                  <%= f.text_field :content, class: "form-control" %>
+                  <%= f.text_area :content, rows: 10, class: "form-control" %>
                 </div>
                 <div class="form-nested">
-                  <h2 style="text-align: center; padding:50px"><%= t("request.break_time") %></h2>
+                  <h2 style="text-align: center; padding:40px"><%= t("request.break_time") %></h2>
                     <%= f.fields_for :break_times do |break_time| %>
                       <%= render "break_time_fields", f: break_time %>
                     <% end %>

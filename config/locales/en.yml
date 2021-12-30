@@ -1,4 +1,6 @@
 en:
+  header:
+    hrm: HRM MANAGE
   user:
     search_user_type:
       0: Employee

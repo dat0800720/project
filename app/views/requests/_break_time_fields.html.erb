@@ -1,16 +1,16 @@
 <div class="nested-fields">
   <div class="field">
     <div class="form-group">
+      <label><%= t("request.day") %></label>
+      <%= f.date_field :day, class: "form-control" %>
+    </div>
+    <div class="form-group">
       <label><%= t("request.start_time") %></label>
       <%= f.time_field :start_time, class: "form-control" %>
     </div>
     <div class="form-group">
       <label><%= t("request.end_time") %></label>
       <%= f.time_field :end_time, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <label><%= t("request.day") %></label>
-      <%= f.date_field :day, class: "form-control" %>
     </div>
     <div class="remove_course_benefit">
       <%= link_to_remove_association t("request.remove_break_time"), f %>

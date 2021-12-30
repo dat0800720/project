@@ -37,7 +37,7 @@
           </div>
           <div class="col-md-2">
             <%= f.label :work_status_eq, t("member.work_status"), class: " form-control-label" %>
-            <%= f.select :work_status_eq, Constant::WORK_STATUS.invert, class:"form-control" %>
+            <%= f.select :work_status_eq, Constant::WORK_STATUS.invert, {include_blank: ""}, class:"form-control" %>
           </div>
           <div class="col-md-3">
             <%= f.label :home_town_cont, t("member.home_town"), class: " form-control-label" %>

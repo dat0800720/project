@@ -27,8 +27,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      params[:user].delete("password")
+      params[:user].delete("password_confirmation")
+    end
     if @user.update(user_params)
-      flash[:danger] = t("boby.successfully")
+      flash[:success] = t("boby.successfully")
       redirect_to @user
     else
       flash[:danger] = t("boby.unsuccessfully")
