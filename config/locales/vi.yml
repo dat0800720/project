@@ -132,6 +132,8 @@ vi:
     time_off: Thời gian nghỉ
     respond_request: Phản hồi đơn từ
   room:
+    create_room: Tạo mới phòng ban
+    edit_room: Chỉnh sửa phòng ban
     manage: Quản lý phòng ban
     name: Tên phòng ban
     max_member: Số người tối đa

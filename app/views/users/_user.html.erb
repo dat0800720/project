@@ -4,7 +4,19 @@
     <td><%= user.name %></td>
     <td><%= user.email %></td>
     <td><%= t("user.show_user_type.#{user.user_type}") %></td>
-    <td><%= Constant::STATUS[user.status] %></td>
+    <td>
+      <% if current_user.admin? && user.staff? %>
+        <div id="status_form">
+          <% if user.status == 0 %>
+            <button type="button" class="a btn btn-primary btn-sm" data-url="<%= ajax_update_users_path %>" value="<%= user.id %>">Hoạt động</button>
+          <% else %>
+            <button type="button" class="a btn btn-primary btn-sm" data-url="<%= ajax_update_users_path %>" value="<%= user.id %>"> Khóa</button>
+          <% end %>
+        </div>
+      <% else %>
+        <%= Constant::STATUS[user.status] %>
+      <% end %>
+    </td>
     <td class="project-actions text-right">
       <% if current_user&.admin? %>
         <%= link_to user, class: "btn btn-primary btn-sm" do %>

@@ -46,6 +46,15 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def ajax_update
+    if @user = User.find(params[:user_id])
+      @user.update(status: @user.status == 0 ? 1 : 0)
+      render json: {status: true, user: @user}, status: :ok
+    else
+      render json: {status: false}, status: :ok
+    end
+  end
+
   private
   def find_user
     @user= User.find_by(id:params[:id])
