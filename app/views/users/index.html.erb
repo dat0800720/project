@@ -58,6 +58,31 @@
   </div>
   <!-- /.card -->
 </section>
+<script type="text/javascript">
+  $(".a").on("click", function(){
+    $_this = $(this);
+    $.ajax({
+      method: "patch",
+      dataType: 'json',
+      url: $(this).attr("data-url"),
+      headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: {
+        user_id: $(this).val()
+      },
+      success: function(data) {
+        if(data.status == true){
+          if(data.user.status == 0){
+            $_this.html("Hoạt động")
+          } else{
+            $_this.html("Khóa")
+          }
+        }
+      }
+    })
+  })
+</script>
 <!-- /.content -->
 <% if User.count > 10 %>
   <div style="width: 30%; margin: auto !important;">

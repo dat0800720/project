@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   root to: "static_pages#home"
   scope "(:locale)", locale: /en|vi/ do
     get "/home", to:"static_pages#home"
-    resources :users
+    resources :users do
+      collection do
+        patch :ajax_update
+      end
+    end
     resources :members
     resources :holidays
     resources :rooms

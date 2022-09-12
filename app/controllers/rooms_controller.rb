@@ -11,6 +11,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    redirect_to calendars_path
   end
 
   def edit

@@ -7,7 +7,7 @@ class Ability
     user ||= User.new
     if user.admin?
       can [:read, :create], User
-      can [:update, :destroy], User, user_type: 'staff'
+      can [:update, :ajax_update, :destroy], User, user_type: 'staff'
       can [:update, :destroy], User, id: user.id
       can [:manage], Member
       can [:manage], Holiday
